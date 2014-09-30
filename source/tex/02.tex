@@ -1,0 +1,81 @@
+
+\section{Architectural Models}
+
+Jak funguje IaaS ve smyslu deploye masiny z pohledu controlleru - zavola scheduler, ten comupte, ten pak glance, pak pripadne cinder a neutron a pusti boot, kdyz to ma ready. a tim padem provoz.
+
+obzrazel
+
+
+\subsection{Architectural Level}
+
+Klasicky logicky model openstack architektury
+
+2) OpenStack architecture moduls
+Rozebrat services a představit modularitu a vendor plugins, drivers
+Identity - Keystone
+Image - Glance
+Compute - Nova
+Network - Neutron
+Volume - Cinder
+
+\subsection{Solution level}
+
+Real implementations of Architectural models
+
+\subsubsection{IaaS controller support }
+
+Cluster software
+- corosync/pacemaker
+- keepalived
+
+Database
+- mysql/galera
+- postgressql/xtradb
+
+RPC
+- rabbitmq
+- qpid
+- 0mq
+
+time
+
+\subsubsection{Iaas Controller services}
+
+Pluggable backends
+
+Keystone
+- file
+- sql
+- ldap
+
+Glance
+- dir
+- swift
+
+Nova
+- kvm
+- qemu
+- docker
+- hyper-v
+
+Neutron
+- flat
+- ovs-gre/vxlan
+- sdns
+
+Cinder
+- lvms
+- sans
+
+
+Různé způsoby nasazení ukázky reálné architektury - promapovat ve 4 na ontologii
+
+\subsection{Hardware matters}
+
+Why we choose different openstack setups
+
+Lab1 - 20 hypervisors, kvm, ovs-gre, local hdd
+Lab2 - 4 hypervisoers, kvm, sdn-contrail, san
+Lab3 - 5 hypervisors, ...
+
+

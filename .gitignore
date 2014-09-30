@@ -1,0 +1,8 @@
+tex/index.pdf
+index.aux
+*.*~
+*.tex.backup
+*.log
+*.aux
+*.synctex.gz
+
