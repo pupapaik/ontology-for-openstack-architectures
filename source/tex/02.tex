@@ -5,24 +5,39 @@ Jak funguje IaaS ve smyslu deploye masiny z pohledu controlleru - zavola schedul
 
 obzrazel
 
-
 \subsection{Architectural Level}
+
+OpenStack is complete Infrastructure as a Service platforms. It allows to create virtual servers on virtual networks using virtual block devices. These core services are followed by growing number of services covering for example telemetry, orchestration or data processing. All services within OpenStack architecture have pluggable backends. This allows vendors to develop plugin for their resources, that can be accessed and managed by the OpenStack API.
+
+Figure X shows the basic configuration of OpenStack in Icehouse version.
 
 Klasicky logicky model openstack architektury
 
 2) OpenStack architecture moduls
+
 Rozebrat services a představit modularitu a vendor plugins, drivers
+
+Database
+
+Message queue
+
+Time service
+
 Identity - Keystone
+
 Image - Glance
+
 Compute - Nova
+
 Network - Neutron
+
 Volume - Cinder
 
 \subsection{Solution level}
 
 Real implementations of Architectural models
 
-\subsubsection{IaaS controller support }
+\subsubsection{IaaS controller support}
 
 Cluster software
 - corosync/pacemaker
