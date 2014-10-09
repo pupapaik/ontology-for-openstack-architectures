@@ -1,9 +1,41 @@
 
-\section{Ontology of OpenStack System}
+\section{OpenStack Platform Ontology}
 
-\subsection{Metadata Standards}
+Let's start what the ontology is, the short is answer:
 
-OSLC Configuration Management
+    An ontology is a specification of a conceptualization. 
+
+The broader answer may be:
+
+	In the context of computer and information sciences, an ontology defines a set of representational primitives with which to model a domain of knowledge or discourse.  The representational primitives are typically classes (or sets), attributes (or properties), and relationships (or relations among class members). The definitions of the representational primitives include information about their meaning and constraints on their logically consistent application.
+
+There formal definition exists
+
+Servers (physical and virtual)
+
+Core Infrastructure Services (DNS,DHCP,NTP, image management)
+
+Storage (NAS and SAN)
+
+Network (Routers, Switches, Firewalls, Load Balancers)
+
+Facilities (Power, Cooling, Space)
+
+\subsection{Standard Ontologies}
+
+The ontologies define the relations between terms, but does not prescribe exactly how they should be applied. 
+
+\subsubsection{Service-Oriented Architecture}
+
+The SOA ontology specification was developed in order to aid understanding, and potentially be a basis for model-driven implementation of software systems
+
+The ontology is represented in the Web Ontology Language (OWL) defined by the World-Wide Web Consortium (W3C). OWL has three increasingly expressive sub-languages: OWL-Lite, OWL-DL, and OWL-Full [OWL]. This ontology uses OWL-DL, the sub-language that provides the greatest expressiveness possible while retaining computational completeness and decidability.
+
+The ontology contains classes and properties corresponding to the core concepts of SOA. The formal OWL definitions are supplemented by natural language descriptions of the concepts, with graphic illustrations of the relations between them, and with examples of their use. For purposes of exposition, the ontology also include.
+
+\subsubsection{OSLC Configuration Management}
+
+
 
 \subsection{Serialization Formats}
 
@@ -28,6 +60,7 @@ Subject (id) or property driven
 Srovnání jednolivých formátů pro ontologii pro openstack řešení - bezpečnost, rychlost, integrace
 
 - speed - parsing / scaling
-- integration, maintenance costs
-- security issues
 
+- integration, maintenance costs
+
+- security issues
