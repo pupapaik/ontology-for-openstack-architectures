@@ -1,28 +1,49 @@
-
-\section{OpenStack Deployment Tools}
+\section{OpenStack Deployment Options}
 
 There are many ways how to deploy OpenStack infrastructure which are more or less automated. Some of them require to fill in answer files, some configuration files. Some tools have graphiceal user interface and allow to provision entire hardware infrastructure as some just configure the services on the provisioned servers.
 
 Model je popsanej dokumentem a není to čitelný, automatizace. Není validita modelu. Chyby se debugují na úrovni reality.
 
-\begin{figure}[!h]
-\centering
-\includegraphics[scale=.15]{img/cm_cycle.eps}
-\caption{Configuration Management deployment cycle}
-\label{fig:cm}
-\end{figure}
-
-
-\subsection{Development}
+\subsection{Development Environment Installers}
 
 For testing and developing OpenStack ...
 
 \subsubsection{PackStack}
 
+Packstack is a utility that uses Puppet modules to deploy various parts of OpenStack on multiple pre-installed servers over SSH automatically. Currently only Fedora, Red Hat Enterprise Linux (RHEL) and compatible derivatives of both are supported.
+
+% https://wiki.openstack.org/wiki/Packstack
+
 \subsubsection{Devstack}
 
-\subsection{Production}
+DevStack has evolved to support a large number of configuration options and alternative platforms and support services. That evolution has grown well beyond what was originally intended and the majority of configuration combinations are rarely, if ever, tested.
+
+% http://devstack.org/overview.html
+
+\subsection{Production Environment Managers}
+
+For production installations of OpenStack ...
 
 \subsubsection{Fuel}
 
+Fuel is an open source deployment and management tool for OpenStack. Developed as an OpenStack community effort, it provides an intuitive, GUI-driven experience for deployment and management of OpenStack, related community projects and plug-ins. 
+
+% https://wiki.openstack.org/wiki/Fuel
+
 \subsubsection{Foreman}
+
+You can setup Foreman to deploy RDO. The metadata is provided in Host Groups.
+
+% https://openstack.redhat.com/Deploying_RDO_using_Foreman
+
+\subsection{Configuration Management Tools}
+
+You can install OpenStack by configuration management tool
+
+\subsubsection{Puppet}
+
+It's already used by Fuel an Foreman
+
+\subsubsection{Salt}
+
+Salt is another approach to install OpenStack.

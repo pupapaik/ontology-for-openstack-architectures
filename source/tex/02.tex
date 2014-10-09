@@ -3,7 +3,19 @@
 
 Jak funguje IaaS ve smyslu deploye masiny z pohledu controlleru - zavola scheduler, ten comupte, ten pak glance, pak pripadne cinder a neutron a pusti boot, kdyz to ma ready. a tim padem provoz.
 
-obzrazel
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=.2]{img/openstack_logical_model.eps}
+\caption{Logical Model of Havana OpenStack}
+\label{fig:cm}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=.2]{img/openstack_logical_model.eps}
+\caption{Logical Model of Icehouse OpenStack service achitecture}
+\label{fig:cm}
+\end{figure}
 
 \subsection{Architectural Level}
 
@@ -48,19 +60,25 @@ Cluster software
 \subsubsection{Communication Services}
 
 RPC
+
 - rabbitmq
+
 - qpid
+
 - 0mq
 
 \subsubsection{Database Services}
 
 Database
+
 - mysql/galera
+
 - postgressql/xtradb
 
 \subsubsection{Time Synchronization Services}
 
 time
+
 - ntp
 
 \subsection{Iaas Controller Core Services}
@@ -73,9 +91,8 @@ Pluggable backends
 
 Keystone is an OpenStack project that provides Identity, Token, Catalog and Policy services for use specifically by projects in the OpenStack family.
 
-Keystone
-- file
 - sql	
+
 - ldap
 
 \subsubsection{Image Service}
@@ -137,17 +154,39 @@ Why we choose different openstack setups
 
 At CEPSOS laboratory have deployed 
 
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=.2]{img/use_case_ha_gre.eps}
+\caption{Locality 1 Architecture}
+\label{fig:cm}
+\end{figure}
+
 - 20 hypervisors, kvm, ovs-gre, local hdd
 
 \subsubsection{Locality 2}
 
 At Cloudlab in datacenter in Pisek we tested
 
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=.2]{img/use_case_ha_sdn.eps}
+\caption{Locality 2 Architecture}
+\label{fig:cm}
+\end{figure}
+
 - 4 hypervisoers, kvm, sdn-contrail, san
 
 \subsubsection{Locality 3}
 
 At Cloudlab in datacenter in Pisek we tested
+
+%\begin{figure}[!h]
+%\centering
+%\includegraphics[scale=.2]{img/use_case_l2_flat.eps}
+%\caption{Locality 3 Architecture}
+%\label{fig:cm}
+%\end{figure}
+
 
 - 3 hypervisors, ... l2 networking 
 

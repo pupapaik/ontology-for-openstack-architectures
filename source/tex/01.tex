@@ -13,31 +13,20 @@ We propose a formalization of OpenStack service architecture model, based on the
 
 When dealing with hundreds of components with thousands of properties and relations, keeping track of changes throughout its life cycle is very challenging. Current approaches are ad hoc, even OpenStack Fuel has severe limitations, there exists no standard for specifying common OpenStack architectural model. The question how to convert the proposed OWL-DL schema to metadata format that configuration management tools can process is discussed. We are working on external node classification service that uses graph database to serialize the OWL ontology with REST API that configuration management tools can use as metadata provider. This can streamline the process of adopting new services and service backends in predictable manner.
 
-\begin{figure}[!h]
-\centering
-\includegraphics[scale=.2]{img/openstack_logical_model.eps}
-\caption{Logical Model of Havana OpenStack}
-\label{fig:cm}
-\end{figure}
+\subsection{Use Cases}
 
-
-\begin{figure}[!h]
-\centering
-\includegraphics[scale=.2]{img/openstack_logical_model.eps}
-\caption{Logical Model of Icehouse OpenStack}
-\label{fig:cm}
-\end{figure}
-
+OpenStack is system that has growing number of components with growing number of components and drivers. As we will show in following text there's no universal installation of OpenStack.  
 
 % představit OpenStack jako systém s rolemi, konfiguracemi, komponenty, drivery. jina instalace per use case. Nexexistuje univerzální instalace. Vysoka komplexita, services
+
+\subsection{Infrastructure Modeling}
+
+Tools usually collect required metadata through web forms or answer files. This is not a conceptual way to describe model.
 
 % Jak vytvořit high level model (logické schéma) architektury? a přenést ji do low level design realizace? 
 % Jak správně definovat architekturu na základě hw infrastruktury a target use case?
 
+\subsection{Process Automation}
+
 % Jak celý proces deploymentu automatizovat?
 
-\subsection{IaaS Solutions}
-
-\subsection{Use Cases}
-
-\subsection{Infrastructure Modeling}

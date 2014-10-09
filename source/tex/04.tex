@@ -9,17 +9,22 @@ The broader answer may be:
 
 	In the context of computer and information sciences, an ontology defines a set of representational primitives with which to model a domain of knowledge or discourse.  The representational primitives are typically classes (or sets), attributes (or properties), and relationships (or relations among class members). The definitions of the representational primitives include information about their meaning and constraints on their logically consistent application.
 
-There formal definition exists
 
-Servers (physical and virtual)
+http://tomgruber.org/writing/ontology-definition-2007.htm
 
-Core Infrastructure Services (DNS,DHCP,NTP, image management)
+% http://www.opengroup.org/soa/source-book/ontologyv2/intro.htm#fig_soa_ontology
 
-Storage (NAS and SAN)
+There formal definition of cloud comptuting architecture 
 
-Network (Routers, Switches, Firewalls, Load Balancers)
+1. Servers (physical and virtual)
 
-Facilities (Power, Cooling, Space)
+2. Core Infrastructure Services (DNS, DHCP, NTP, image management)
+
+3. Storage (NAS and SAN)
+
+4. Network (Routers, Switches, Firewalls, Load Balancers)
+
+5. Facilities (Power, Cooling, Space)
 
 \subsection{Standard Ontologies}
 
@@ -33,34 +38,53 @@ The ontology is represented in the Web Ontology Language (OWL) defined by the Wo
 
 The ontology contains classes and properties corresponding to the core concepts of SOA. The formal OWL definitions are supplemented by natural language descriptions of the concepts, with graphic illustrations of the relations between them, and with examples of their use. For purposes of exposition, the ontology also include.
 
+
 \subsubsection{OSLC Configuration Management}
 
 
-
-\subsection{Serialization Formats}
+\subsection{Ontology Serialization Formats}
 
 Způsoby serialiazce ontologie
 
 \subsubsection{XML Documents}
 
-RDF format
+RDF is a standard model for data interchange on the Web. RDF has features that facilitate data merging even if the underlying schemas differ, and it specifically supports the evolution of schemas over time without requiring all the data consumers to be changed.
+
+RDF extends the linking structure of the Web to use URIs to name the relationship between things as well as the two ends of the link (this is usually referred to as a “triple”). Using this simple model, it allows structured and semi-structured data to be mixed, exposed, and shared across different applications. 
+
+This linking structure forms a directed, labeled graph, where the edges represent the named link between two resources, represented by the graph nodes. This graph view is the easiest possible mental model for RDF and is often used in easy-to-understand visual explanations. 
+
+% http://www.w3.org/RDF/
 
 \subsubsection{Graph databases}
 
 Preserving RDF format, just very different implementation 
 
+In computing, a graph database is a database that uses graph structures with nodes, edges, and properties to represent and store data. A graph database is any storage system that provides index-free adjacency.This means that every element contains a direct pointer to its adjacent elements and no index lookups are necessary. General graph databases that can store any graph are distinct from specialized graph databases such as triplestores and network databases.
+
+% http://en.wikipedia.org/wiki/Graph_database
+
 je to servica, tzn overhead oproti xml filu, ale zas ma api atd ...
 
-\subsubsection{Hierarchical}
+\subsection{Plain Meta-data Serialization Formats}
+
+It's tree structure
+
+\subsubsection{Hierarchical Databases}
 
 Subject (id) or property driven
 
+reclass allows you to define your nodes through class inheritance, while always able to override details further up the tree (i.e. in more specific nodes). Think of classes as feature sets, as commonalities between nodes, or as tags. Add to that the ability to nest classes (multiple inheritance is allowed, well-defined, and encouraged), and you can assemble your infrastructure from smaller bits, eliminating duplication and exposing all important parameters to a single location, logically organised. And if that isn’t enough, reclass lets you reference other parameters in the very hierarchy you are currently assembling.
+
+% http://reclass.pantsfullofunix.net/
+
 \subsection{Comparison}
 
-Srovnání jednolivých formátů pro ontologii pro openstack řešení - bezpečnost, rychlost, integrace
+% Srovnání jednolivých formátů pro ontologii pro openstack řešení - bezpečnost, rychlost, integrace
 
 - speed - parsing / scaling
 
 - integration, maintenance costs
 
 - security issues
+
