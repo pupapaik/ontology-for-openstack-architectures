@@ -1,7 +1,21 @@
 
 \section{Service Architecture Models}
 
-Jak funguje IaaS ve smyslu deploye masiny z pohledu controlleru - zavola scheduler, ten comupte, ten pak glance, pak pripadne cinder a neutron a pusti boot, kdyz to ma ready. a tim padem provoz.
+Infrastructure as a Service platforms at it's core controls various virtualization interfaces and services and allows to launch a new virtual server from given disk image at chosen host server, connect it to provided physical or virtual network and add block storage device to it. The OpenStack platform provides services that address needed to provide the very basic compute, network and storage services. The identity provider and image store  provide further services needed to provide the basic sevices.
+
+Nebula was the predecessor of OpenStack and was superseded because it did not scale well. The services withing OpenStack communicate through 3 various communication channels
+
+TCP/SQL - Services store it's state in SQL datastore
+
+AMQP - Service internally communicate over asychronous communication bus which .... Compute service calls network service 
+
+HTTP - All services expose REST APIs that allow higher level integration, control ...
+
+\subsection{Architectural Level}
+
+OpenStack is complete Infrastructure as a Service platform. It allows to create virtual servers on virtual networks using virtual block devices.
+
+%Jak funguje IaaS ve smyslu deploye masiny z pohledu controlleru - zavola scheduler, ten comupte, ten pak glance, pak pripadne cinder a neutron a pusti boot, kdyz to ma ready. a tim padem provoz.
 
 \begin{figure}[!h]
 \centering
@@ -10,6 +24,12 @@ Jak funguje IaaS ve smyslu deploye masiny z pohledu controlleru - zavola schedul
 \label{fig:cm}
 \end{figure}
 
+Further versions of OpenStack introduce more sophisticated services that use basic services to Data processsing 
+
+ These core services are followed by growing number of services covering for example telemetry, orchestration or data processing. All services within OpenStack architecture have pluggable backends. This allows vendors to develop plugin for their resources, that can be accessed and managed by the OpenStack API.
+
+Following Figure shows the basic configuration of OpenStack in Icehouse version.
+
 \begin{figure}[!h]
 \centering
 \includegraphics[scale=.2]{img/openstack_logical_model.eps}
@@ -17,17 +37,12 @@ Jak funguje IaaS ve smyslu deploye masiny z pohledu controlleru - zavola schedul
 \label{fig:cm}
 \end{figure}
 
-\subsection{Architectural Level}
-
-OpenStack is complete Infrastructure as a Service platforms. It allows to create virtual servers on virtual networks using virtual block devices. These core services are followed by growing number of services covering for example telemetry, orchestration or data processing. All services within OpenStack architecture have pluggable backends. This allows vendors to develop plugin for their resources, that can be accessed and managed by the OpenStack API.
-
-Figure X shows the basic configuration of OpenStack in Icehouse version.
 
 Klasicky logicky model openstack architektury
 
 2) OpenStack architecture moduls
 
-Rozebrat services a představit modularitu a vendor plugins, drivers
+% Rozebrat services a představit modularitu a vendor plugins, drivers
 
 Database
 
