@@ -1,50 +1,109 @@
 
 \section{Ontology Usage}
 
-We chose the Opengroup's Service Oriented Architecture as a 
+% ontologie mohou dobre popsat openstack architekturu, protoze openstack vyuziva message bus, service catalog. Ontologie slouzi pak nad ramec openstack sluzeb u serveru ale definuji i vlastni operacni systemy a pridruzene sluzby - monitorting, metering, firewally, backupy, log management atd
 
-\subsection{Ontology details}
+We started mapping the very
 
-\begin{figure}[!h]
-\centering
-\includegraphics[scale=.2]{img/soa_relation.eps}
-\caption{SOA service to consumer}
-\label{fig:cm}
-\end{figure}
+% ontologie je multiregionalni podporuje vice lokaci najednou
 
+The Ontology can support many individual implementations at the time
 
+%
 
+\subsection{Implementation details}
 
-\begin{figure}[!h]
-\centering
-\includegraphics[scale=.2]{img/soa_property.eps}
-\caption{SOA service properties}
-\label{fig:cm}
-\end{figure}
+% Vytvorerin ontologie - protoege, na zaklade SOA ontologie
+% testovani reasoningu pres pellet vyvozovani
 
-\subsection{Reasoning}
+Initial work on creating our Ontology was done in Protege, open-source ontology editor and framework for building intelligent systems.
 
-Deployment bez implementačních chyb.
-
-\subsubsection{Model Integrity Validation}
-
-Validace celého řešení vůči high level modelu.
-
-\subsection{External Node Classification}
-
-Mapování vybraného formátu na OpenStack
-
-(HA architektura SDN controller)
+The ontology is transformed into graph database using our python-bases service named django-ENC that can read and write ontology from OWL-DL XML files created by Protege and communicates with neo4j graph database through REST API. The graph databases are part of family of NoSQL databases and offer much better performance at any volume of data.
 
 \begin{figure}[!h]
 \centering
-\includegraphics[scale=.15]{img/cm_cycle.eps}
-\caption{Configuration Management deployment cycle}
+\includegraphics[scale=.17]{img/django_enc_arch.eps}
+\caption{Ontology Service Architecture}
 \label{fig:cm}
 \end{figure}
 
-\subsubsection{Puppet ENC}
+The django-ENC service  use  web framework Django to deliver web services and asynchronous task queue Celery to perform time consuming tasks like ontology assertions and synchronizations between XML and graph database. Service expose it's owns HTTP REST API that can be consumed by configuration management tools like Salt or Puppet through their External Node Classification option.
 
-\subsubsection{SaltStack ENC}
+The metada passed to CM tools is valid for 1st level of Cloud computing ontology [cite] 
 
-Reálný přínos celého řešení
+%
+
+We have tested SaltStack configuration management tool to instantiate 
+
+The process is not yet fully automated as there is need of setting up network and storage components manually, but the progress in both configuration management tools and network and storage will allow better automation of these components by on-place agents or access protocols like SSH.
+
+\subsection{Ontology samples}
+
+Given use case scenario Lab1 we have 3 virtual servers providing OpenStack and core services in HA mode. These servers are virtualised in common . 20 physical servers  
+
+\subsubsection{Service components of controller1}
+
+\begin{lstlisting}
+  <owl:Class rdf:about="#Glance">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ServiceInterface"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Composition"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+\end{lstlisting}
+
+\subsubsection{Detail of service glance.image}
+
+\begin{lstlisting}
+  <owl:Class rdf:about="#Glance">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ServiceInterface"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Composition"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ServiceInterface"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Composition"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+\end{lstlisting}
+
+\subsubsection{Detail of data property type}
+
+\begin{lstlisting}
+  <owl:Class rdf:about="#Glance">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ServiceInterface"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Composition"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+\end{lstlisting}
+
+\subsubsection{Detail of object property database}
+
+\begin{lstlisting}
+  <owl:Class rdf:about="#Glance">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ServiceInterface"/>
+    </owl:disjointWith>
+  </owl:Class>
+\end{lstlisting}

@@ -1,0 +1,662 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2010/01/core-soa.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://www.semanticweb.org/ontologies/2010/01/core-soa.owl">
+    <Prefix name="" IRI="http://www.semanticweb.org/ontologies/2010/01/core-soa.owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#AmqpBus"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Composition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Effect"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Element"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Event"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Glance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HttpApi"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HumanActor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#InformationType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LaunchInstance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NovaControl"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OpeStackLab1"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Policy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Process"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Service"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ServiceComposition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ServiceContract"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ServiceInterface"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SqlQuery"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#System"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Task"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#appliesTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#does"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#doneBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#generatedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#generates"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasContract"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasInput"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasInterface"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasOutput"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#involvesParty"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isContractFor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isInputAt"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isInterfaceOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isOutputAt"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isPartyTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isSetBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isSpecifiedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isSubjectTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#orchestratedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#orchestrates"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#performedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#performs"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#representedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#represents"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#respondedToBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#respondsTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#setsPolicy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#specifies"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#usedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#uses"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#compositionPattern"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#constraints"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#interactionAspect"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#legalAspect"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#AmqpBus"/>
+        <Class IRI="#ServiceInterface"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Composition"/>
+        <Class IRI="#System"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Composition"/>
+        <ObjectMinCardinality cardinality="0">
+            <ObjectProperty IRI="#orchestratedBy"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Composition"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#orchestratedBy"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Composition"/>
+        <DataMinCardinality cardinality="1">
+            <DataProperty IRI="#compositionPattern"/>
+        </DataMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Composition"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="#compositionPattern"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Effect"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#isSpecifiedBy"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Element"/>
+        <ObjectMinCardinality cardinality="0">
+            <ObjectProperty IRI="#orchestrates"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Element"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#orchestrates"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Glance"/>
+        <Class IRI="#Service"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HttpApi"/>
+        <Class IRI="#ServiceInterface"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HumanActor"/>
+        <Class IRI="#Element"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LaunchInstance"/>
+        <Class IRI="#Process"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NovaControl"/>
+        <Class IRI="#Service"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OpeStackLab1"/>
+        <Class IRI="#ServiceComposition"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Process"/>
+        <Class IRI="#Composition"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Service"/>
+        <Class IRI="#Element"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Service"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#hasInterface"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ServiceComposition"/>
+        <Class IRI="#Composition"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ServiceContract"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#isContractFor"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ServiceContract"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#specifies"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ServiceContract"/>
+        <DataMinCardinality cardinality="1">
+            <DataProperty IRI="#interactionAspect"/>
+        </DataMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ServiceContract"/>
+        <DataMinCardinality cardinality="1">
+            <DataProperty IRI="#legalAspect"/>
+        </DataMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ServiceContract"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="#interactionAspect"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ServiceContract"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="#legalAspect"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ServiceInterface"/>
+        <DataMinCardinality cardinality="1">
+            <DataProperty IRI="#constraints"/>
+        </DataMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ServiceInterface"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="#constraints"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SqlQuery"/>
+        <Class IRI="#ServiceInterface"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#System"/>
+        <Class IRI="#Element"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Task"/>
+        <Class IRI="#Element"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Task"/>
+        <ObjectMinCardinality cardinality="0">
+            <ObjectProperty IRI="#doneBy"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Task"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#doneBy"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Composition"/>
+        <Class IRI="#Task"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Effect"/>
+        <Class IRI="#InformationType"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Effect"/>
+        <Class IRI="#Policy"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Effect"/>
+        <Class IRI="#ServiceInterface"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Element"/>
+        <Class IRI="#Policy"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Event"/>
+        <Class IRI="#Policy"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Event"/>
+        <Class IRI="#ServiceContract"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Event"/>
+        <Class IRI="#ServiceInterface"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#HumanActor"/>
+        <Class IRI="#Service"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#HumanActor"/>
+        <Class IRI="#ServiceContract"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#HumanActor"/>
+        <Class IRI="#ServiceInterface"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#HumanActor"/>
+        <Class IRI="#Task"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#InformationType"/>
+        <Class IRI="#Policy"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#InformationType"/>
+        <Class IRI="#ServiceContract"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Policy"/>
+        <Class IRI="#ServiceContract"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Policy"/>
+        <Class IRI="#ServiceInterface"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Policy"/>
+        <Class IRI="#Task"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Process"/>
+        <Class IRI="#ServiceContract"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Process"/>
+        <Class IRI="#ServiceInterface"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Service"/>
+        <Class IRI="#ServiceInterface"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Service"/>
+        <Class IRI="#System"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Service"/>
+        <Class IRI="#Task"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#ServiceComposition"/>
+        <Class IRI="#ServiceContract"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#ServiceComposition"/>
+        <Class IRI="#ServiceInterface"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#ServiceContract"/>
+        <Class IRI="#ServiceInterface"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#ServiceContract"/>
+        <Class IRI="#Task"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#ServiceInterface"/>
+        <Class IRI="#Task"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#System"/>
+        <Class IRI="#Task"/>
+    </DisjointClasses>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isSubjectTo"/>
+        <ObjectProperty IRI="#appliesTo"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#does"/>
+        <ObjectProperty IRI="#doneBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#generatedBy"/>
+        <ObjectProperty IRI="#generates"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasContract"/>
+        <ObjectProperty IRI="#isContractFor"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isInputAt"/>
+        <ObjectProperty IRI="#hasInput"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isInterfaceOf"/>
+        <ObjectProperty IRI="#hasInterface"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isOutputAt"/>
+        <ObjectProperty IRI="#hasOutput"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#involvesParty"/>
+        <ObjectProperty IRI="#isPartyTo"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isSetBy"/>
+        <ObjectProperty IRI="#setsPolicy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isSpecifiedBy"/>
+        <ObjectProperty IRI="#specifies"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#orchestrates"/>
+        <ObjectProperty IRI="#orchestratedBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#performedBy"/>
+        <ObjectProperty IRI="#performs"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#representedBy"/>
+        <ObjectProperty IRI="#represents"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#respondedToBy"/>
+        <ObjectProperty IRI="#respondsTo"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#usedBy"/>
+        <ObjectProperty IRI="#uses"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#appliesTo"/>
+        <Class IRI="#Policy"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#doneBy"/>
+        <Class IRI="#Task"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#generates"/>
+        <Class IRI="#Element"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasInput"/>
+        <Class IRI="#ServiceInterface"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasInterface"/>
+        <Class IRI="#Service"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasOutput"/>
+        <Class IRI="#ServiceInterface"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isContractFor"/>
+        <Class IRI="#ServiceContract"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isPartyTo"/>
+        <Class IRI="#HumanActor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#orchestratedBy"/>
+        <Class IRI="#Composition"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#performs"/>
+        <Class IRI="#Element"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#represents"/>
+        <Class IRI="#Element"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#respondsTo"/>
+        <Class IRI="#Element"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#setsPolicy"/>
+        <Class IRI="#HumanActor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#specifies"/>
+        <Class IRI="#ServiceContract"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#uses"/>
+        <Class IRI="#Element"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#doneBy"/>
+        <Class IRI="#HumanActor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#generates"/>
+        <Class IRI="#Event"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasInput"/>
+        <Class IRI="#InformationType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasInterface"/>
+        <Class IRI="#ServiceInterface"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasOutput"/>
+        <Class IRI="#InformationType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isContractFor"/>
+        <Class IRI="#Service"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isPartyTo"/>
+        <Class IRI="#ServiceContract"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#orchestratedBy"/>
+        <Class IRI="#Element"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#performs"/>
+        <Class IRI="#Service"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#represents"/>
+        <Class IRI="#Element"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#respondsTo"/>
+        <Class IRI="#Event"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#setsPolicy"/>
+        <Class IRI="#Policy"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#specifies"/>
+        <Class IRI="#Effect"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#uses"/>
+        <Class IRI="#Element"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#compositionPattern"/>
+        <Class IRI="#Composition"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#constraints"/>
+        <Class IRI="#ServiceInterface"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#interactionAspect"/>
+        <Class IRI="#ServiceContract"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#legalAspect"/>
+        <Class IRI="#ServiceContract"/>
+    </DataPropertyDomain>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

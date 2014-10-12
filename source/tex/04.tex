@@ -1,18 +1,14 @@
 
-\section{OpenStack Platform Ontology}
+\section{IaaS Service Ontology}
 
-Let's start what the ontology is, the short is answer:
+What is an otlology? An ontology is a specification of a conceptualization. According to Gruber \cite{OntologyDefinition} an ontology defines a set of representational primitives with which to model a domain of knowledge. These  primitives are typically classes (or sets), attributes (or properties), and relationships (or relations among class members). The definitions of the representational primitives include information about their meaning and constraints on their logically consistent application.
 
-    An ontology is a specification of a conceptualization. 
-
-The broader answer may be:
-
-	In the context of computer and information sciences, an ontology defines a set of representational primitives with which to model a domain of knowledge or discourse.  The representational primitives are typically classes (or sets), attributes (or properties), and relationships (or relations among class members). The definitions of the representational primitives include information about their meaning and constraints on their logically consistent application.
-
-
-http://tomgruber.org/writing/ontology-definition-2007.htm
-
+% http://tomgruber.org/writing/ontology-definition-2007.htm
 % http://www.opengroup.org/soa/source-book/ontologyv2/intro.htm#fig_soa_ontology
+
+% ontologie jine fieldy - medicina
+
+% zkratit
 
 There formal definition of cloud comptuting architecture 
 
@@ -30,14 +26,15 @@ There formal definition of cloud comptuting architecture
 
 The ontologies define the relations between terms, but does not prescribe exactly how they should be applied. 
 
+OWL has three increasingly expressive sub-languages: OWL-Lite, OWL-DL, and OWL-Full [OWL]. The sub-language OWL-DL provides the greatest expressiveness possible while retaining computational completeness and decidability.
+
 \subsubsection{Service-Oriented Architecture}
 
 The SOA ontology specification was developed in order to aid understanding, and potentially be a basis for model-driven implementation of software systems
 
-The ontology is represented in the Web Ontology Language (OWL) defined by the World-Wide Web Consortium (W3C). OWL has three increasingly expressive sub-languages: OWL-Lite, OWL-DL, and OWL-Full [OWL]. This ontology uses OWL-DL, the sub-language that provides the greatest expressiveness possible while retaining computational completeness and decidability.
+The ontology is represented in the Web Ontology Language (OWL) defined by the World-Wide Web Consortium (W3C). 
 
 The ontology contains classes and properties corresponding to the core concepts of SOA. The formal OWL definitions are supplemented by natural language descriptions of the concepts, with graphic illustrations of the relations between them, and with examples of their use. For purposes of exposition, the ontology also include.
-
 
 \subsubsection{OSLC Configuration Management}
 
@@ -77,6 +74,24 @@ Subject (id) or property driven
 reclass allows you to define your nodes through class inheritance, while always able to override details further up the tree (i.e. in more specific nodes). Think of classes as feature sets, as commonalities between nodes, or as tags. Add to that the ability to nest classes (multiple inheritance is allowed, well-defined, and encouraged), and you can assemble your infrastructure from smaller bits, eliminating duplication and exposing all important parameters to a single location, logically organised. And if that isn’t enough, reclass lets you reference other parameters in the very hierarchy you are currently assembling.
 
 % http://reclass.pantsfullofunix.net/
+
+\subsection{Ontology structure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=.2]{img/soa_relation.eps}
+\caption{SOA service to consumer}
+\label{fig:cm}
+\end{figure}
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=.2]{img/soa_property.eps}
+\caption{SOA service properties}
+\label{fig:cm}
+\end{figure}
+
 
 \subsection{Comparison}
 
