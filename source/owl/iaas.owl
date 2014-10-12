@@ -25,7 +25,16 @@
         <Class IRI="#AmqpBus"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#CinderVolumeService"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ColdOrchestrationService"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Composition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Database"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Effect"/>
@@ -37,7 +46,16 @@
         <Class IRI="#Event"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Glance"/>
+        <Class IRI="#FileSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GlanceApi"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GlanceImageService"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GlanceRegistry"/>
     </Declaration>
     <Declaration>
         <Class IRI="#HttpApi"/>
@@ -46,22 +64,67 @@
         <Class IRI="#HumanActor"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#ImageStore"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#InformationType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#KeystoneIdentityService"/>
     </Declaration>
     <Declaration>
         <Class IRI="#LaunchInstance"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#NovaControl"/>
+        <Class IRI="#MySqlDatabase"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NetworkBind"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NetworkPlugin"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NeutronNetworkService"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NovaComputeCompute"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NovaComputeControl"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NovaComputeNetwork"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NovaComputeVolume"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NtpTimeClient"/>
     </Declaration>
     <Declaration>
         <Class IRI="#OpeStackLab1"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OpenContrailSDN"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OpenVswitch"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Policy"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Process"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RabbitMessageBus"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#S3ObjectStore"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SaharaDataProcessing"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Service"/>
@@ -79,10 +142,16 @@
         <Class IRI="#SqlQuery"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#SwiftObjectStore"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#System"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Task"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VirtualHost"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#appliesTo"/>
@@ -109,6 +178,9 @@
         <ObjectProperty IRI="#hasInterface"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasNetworkBind"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasOutput"/>
     </Declaration>
     <Declaration>
@@ -122,6 +194,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#isInterfaceOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isNetworkBind"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#isOutputAt"/>
@@ -191,6 +266,14 @@
         <Class IRI="#ServiceInterface"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#CinderVolumeService"/>
+        <Class IRI="#Service"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ColdOrchestrationService"/>
+        <Class IRI="#Service"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Composition"/>
         <Class IRI="#System"/>
     </SubClassOf>
@@ -219,6 +302,10 @@
         </DataMaxCardinality>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Database"/>
+        <Class IRI="#MySqlDatabase"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Effect"/>
         <ObjectMinCardinality cardinality="1">
             <ObjectProperty IRI="#isSpecifiedBy"/>
@@ -237,8 +324,20 @@
         </ObjectMaxCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Glance"/>
+        <Class IRI="#FileSystem"/>
+        <Class IRI="#ImageStore"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GlanceApi"/>
+        <Class IRI="#NetworkBind"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GlanceImageService"/>
         <Class IRI="#Service"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GlanceRegistry"/>
+        <Class IRI="#NetworkBind"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#HttpApi"/>
@@ -249,11 +348,51 @@
         <Class IRI="#Element"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#ImageStore"/>
+        <Class IRI="#InformationType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#KeystoneIdentityService"/>
+        <Class IRI="#Service"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#LaunchInstance"/>
         <Class IRI="#Process"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#NovaControl"/>
+        <Class IRI="#MySqlDatabase"/>
+        <Class IRI="#Service"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NetworkBind"/>
+        <Class IRI="#InformationType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NetworkPlugin"/>
+        <Class IRI="#InformationType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NeutronNetworkService"/>
+        <Class IRI="#Service"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NovaComputeCompute"/>
+        <Class IRI="#Service"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NovaComputeControl"/>
+        <Class IRI="#Service"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NovaComputeNetwork"/>
+        <Class IRI="#Service"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NovaComputeVolume"/>
+        <Class IRI="#Service"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NtpTimeClient"/>
         <Class IRI="#Service"/>
     </SubClassOf>
     <SubClassOf>
@@ -261,8 +400,28 @@
         <Class IRI="#ServiceComposition"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#OpenContrailSDN"/>
+        <Class IRI="#NetworkPlugin"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OpenVswitch"/>
+        <Class IRI="#NetworkPlugin"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Process"/>
         <Class IRI="#Composition"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RabbitMessageBus"/>
+        <Class IRI="#Service"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#S3ObjectStore"/>
+        <Class IRI="#ImageStore"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SaharaDataProcessing"/>
+        <Class IRI="#Service"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Service"/>
@@ -331,6 +490,10 @@
         <Class IRI="#ServiceInterface"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#SwiftObjectStore"/>
+        <Class IRI="#ImageStore"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#System"/>
         <Class IRI="#Element"/>
     </SubClassOf>
@@ -350,6 +513,14 @@
             <ObjectProperty IRI="#doneBy"/>
         </ObjectMaxCardinality>
     </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VirtualHost"/>
+        <Class IRI="#RabbitMessageBus"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#CinderVolumeService"/>
+        <Class IRI="#NovaComputeVolume"/>
+    </DisjointClasses>
     <DisjointClasses>
         <Class IRI="#Composition"/>
         <Class IRI="#Task"/>
@@ -405,6 +576,10 @@
     <DisjointClasses>
         <Class IRI="#InformationType"/>
         <Class IRI="#ServiceContract"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#NeutronNetworkService"/>
+        <Class IRI="#NovaComputeNetwork"/>
     </DisjointClasses>
     <DisjointClasses>
         <Class IRI="#Policy"/>
@@ -485,6 +660,10 @@
     <InverseObjectProperties>
         <ObjectProperty IRI="#isInterfaceOf"/>
         <ObjectProperty IRI="#hasInterface"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isNetworkBind"/>
+        <ObjectProperty IRI="#hasNetworkBind"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#isOutputAt"/>

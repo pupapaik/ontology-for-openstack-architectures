@@ -5,11 +5,11 @@
 
 We started mapping the very
 
-% ontologie je multiregionalni podporuje vice lokaci najednou
+% ontologie je multitenantni podporuje vice reseni najednou
 
 The Ontology can support many individual implementations at the time
 
-%
+% 
 
 \subsection{Implementation details}
 
@@ -29,19 +29,19 @@ The ontology is transformed into graph database using our python-bases service n
 
 The django-ENC service  use  web framework Django to deliver web services and asynchronous task queue Celery to perform time consuming tasks like ontology assertions and synchronizations between XML and graph database. Service expose it's owns HTTP REST API that can be consumed by configuration management tools like Salt or Puppet through their External Node Classification option.
 
-The metada passed to CM tools is valid for 1st level of Cloud computing ontology [cite] 
+The metada passed to CM tools is valid for 1st level of Cloud computing ontology [cite].
 
-%
+We have successfully tested service status enforcemet of several complete OpenStack installations by SaltStack configuration management tool with metadata acquired from Ontology ENC API.
 
-We have tested SaltStack configuration management tool to instantiate 
+The deployment process is not yet fully automated as there is need of setting up network and storage resources manually, but the progress in both configuration management tools and network and storage will allow better automation of these components by in-place agents or access protocols like SSH in the future.
 
-The process is not yet fully automated as there is need of setting up network and storage components manually, but the progress in both configuration management tools and network and storage will allow better automation of these components by on-place agents or access protocols like SSH.
+\subsection{Samples of Ontology}
 
-\subsection{Ontology samples}
-
-Given use case scenario Lab1 we have 3 virtual servers providing OpenStack and core services in HA mode. These servers are virtualised in common . 20 physical servers  
+Given use case scenario Lab1 we have 3 virtual servers providing OpenStack and other core services in high-availability mode. These servers are virtualised in common. 20 physical servers  
 
 \subsubsection{Service components of controller1}
+
+Services located on controller server
 
 \begin{lstlisting}
   <owl:Class rdf:about="#Glance">
@@ -58,6 +58,9 @@ Given use case scenario Lab1 we have 3 virtual servers providing OpenStack and c
 \end{lstlisting}
 
 \subsubsection{Detail of service glance.image}
+
+On of the services defined on the controller node is image service Glance. Following definitiong
+
 
 \begin{lstlisting}
   <owl:Class rdf:about="#Glance">
@@ -81,6 +84,8 @@ Given use case scenario Lab1 we have 3 virtual servers providing OpenStack and c
 
 \subsubsection{Detail of data property type}
 
+The resource can have data property and are derived mostly from Dublin Core metadata terms.
+
 \begin{lstlisting}
   <owl:Class rdf:about="#Glance">
     <owl:disjointWith>
@@ -96,6 +101,8 @@ Given use case scenario Lab1 we have 3 virtual servers providing OpenStack and c
 \end{lstlisting}
 
 \subsubsection{Detail of object property database}
+
+Resources can have object property types that describe more complex relations. 
 
 \begin{lstlisting}
   <owl:Class rdf:about="#Glance">

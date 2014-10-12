@@ -12,6 +12,13 @@ What is an otlology? An ontology is a specification of a conceptualization. Acco
 
 There formal definition of cloud comptuting architecture 
 
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=.2]{img/soa_relation.eps}
+\caption{SOA Sbject Property Service Interface}
+\label{fig:cm}
+\end{figure}
+
 1. Servers (physical and virtual)
 
 2. Core Infrastructure Services (DNS, DHCP, NTP, image management)
@@ -22,7 +29,7 @@ There formal definition of cloud comptuting architecture
 
 5. Facilities (Power, Cooling, Space)
 
-\subsection{Standard Ontologies}
+\subsection{Ontological Standards}
 
 The ontologies define the relations between terms, but does not prescribe exactly how they should be applied. 
 
@@ -39,9 +46,27 @@ The ontology contains classes and properties corresponding to the core concepts 
 \subsubsection{OSLC Configuration Management}
 
 
+\subsubsection{Dublin Core Metadata Initiative}
+
+\subsubsection{Basic Formal Ontology}
+
+The Basic Formal Ontology (BFO) is a formal ontological framework developed by Barry Smith and his associates that consists in a series of sub-ontologies at different levels of granularity. The ontologies are divided into two varieties:
+ Continuant (or snapshot) ontologies, comprehending continuant entities such as three-dimensional enduring objects, and occurrent ontologies, comprehending processes conceived as extended through (or as spanning) time.
+
 \subsection{Ontology Serialization Formats}
 
-Způsoby serialiazce ontologie
+There are many ways how to serialize ontology.
+
+In it's core ontology representation is set of graph edges connecting subject and object vertices.
+
+The 
+
+%- speed - parsing / scaling
+
+%- integration, maintenance costs
+
+%- security issues
+
 
 \subsubsection{XML Documents}
 
@@ -55,9 +80,7 @@ This linking structure forms a directed, labeled graph, where the edges represen
 
 \subsubsection{Graph databases}
 
-Preserving RDF format, just very different implementation 
-
-In computing, a graph database is a database that uses graph structures with nodes, edges, and properties to represent and store data. A graph database is any storage system that provides index-free adjacency.This means that every element contains a direct pointer to its adjacent elements and no index lookups are necessary. General graph databases that can store any graph are distinct from specialized graph databases such as triplestores and network databases.
+Graph databases can map OWL based ontologies very well as they have format very similar to RDF format which is standard format of any XML based graph database, just very different implementation. Graph database uses graph structures with nodes, edges, and properties to represent and store data. A graph database is any storage system that provides index-free adjacency.This means that every element contains a direct pointer to its adjacent elements and no index lookups are necessary.
 
 % http://en.wikipedia.org/wiki/Graph_database
 
@@ -80,26 +103,19 @@ reclass allows you to define your nodes through class inheritance, while always 
 \begin{figure}[!h]
 \centering
 \includegraphics[scale=.2]{img/soa_relation.eps}
-\caption{SOA service to consumer}
+\caption{SOA Sbject Property Service Interface}
 \label{fig:cm}
 \end{figure}
 
+%\begin{figure}[!h]
+%\centering
+%\includegraphics[scale=.2]{img/soa_property.eps}
+%\caption{SOA service property}
+%\label{fig:cm}
+%\end{figure}
 
-\begin{figure}[!h]
-\centering
-\includegraphics[scale=.2]{img/soa_property.eps}
-\caption{SOA service properties}
-\label{fig:cm}
-\end{figure}
 
-
-\subsection{Comparison}
+%\subsection{Comparison}
 
 % Srovnání jednolivých formátů pro ontologii pro openstack řešení - bezpečnost, rychlost, integrace
-
-- speed - parsing / scaling
-
-- integration, maintenance costs
-
-- security issues
 
