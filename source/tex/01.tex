@@ -4,12 +4,18 @@
 %proč OpenStack - protože komunita 500000 vývojářů, tisíce firem, nárůst kódu za poslední dobu stacalytics.com 
 % How OpenStack Works?
 
-%vendor lockin, scalability from notebook to thousans of servers like CERN
+Nowadays IT infrastructure is the key component for almost every organization across different domains, but it must be maximally effective with the lowest investment and operating costs.
+For this reason, cloud Infrastructure as a Service (IaaS) is gradually being accepted as the right solution regardless hosting as private, public or hybrid form. Lots of key vendors had tried to develop own solutions for IaaS clouds during several years ago,
+but infrastructure is being too complex and heterogeneous. Different vendors means different technology, which caused vendor lock-in and limitations in migrations for future growing. In addition, every organization has different requirements for hardware, software and its purpose. 
 
-% 2,292 Companies; 8,066 Individual Members; 130 Countries; 2,007 Total Contributors; 341 Average Monthly Contributors; 89,156 Code Contributors - more information at 
-% www.stackalytics.com July 2014
+Based on the idea of openness, scalability and standardization of IaaS cloud platform NASA together with RackSpace founded in 2010 project called OpenStack, which is a free and open source cloud operating system that controls large pools of compute, storage, and networking resources through
+datacenter. It is the largest open-source cloud computing platform today \cite{OpenStack}. Community is driven by industry vendors as IBM, Hewlett-Packard, Intel, Cisco, Juniper, Red Hat, VMWare, EMC, Mirantis, Cannonical, etc. In terms of numbers the OpenStack community contains about 2,292 companies, 8,066 individual members and 89,156 code contributors from 130 different countries \cite{STACKALYTICS}.
+These figures confirm that OpenStack belongs to the largest solution for IaaS cloud.
 
-OpenStack is the largest open-source cloud computing platform today. Many companies participate to its code, extend core functions and write new service backends to fit their business goals. The actual system consists of many components designed with plugin architecture that allows custom implementations for various service backends. These components can be combined and configured to match available software and hardware resources and real use-case needs.
+OpenStack is a modular, scalable system, which can run on a single personal computer or on the hundreds of thousands servers as e.g. CERN \cite{CERN} or PayPal \cite{PayPal}.
+
+Tolik kolik obsahuje clenu, tolik existuje zpusobu jak openstack vyuzivat.
+Each vendor tries to extend core functions and write new service backends to fit their business goals. The actual system consists of many modules and components designed with plugin architecture that allows custom implementations for various service backends. These components can be combined and configured to match available software and hardware resources and real use-case needs.
 
 Each implementation has its own component combination and use some form of configuration management tool to enforce the service states on designated servers and possibly other network components. These tools require data that covers configuration of all components. Detecting component inconsistencies by hand is painful and time consuming process.
 
