@@ -14,14 +14,23 @@ These figures confirm that OpenStack belongs to the largest solution for IaaS cl
 
 OpenStack is a modular, scalable system, which can run on a single personal computer or on the hundreds of thousands servers as e.g. CERN \cite{CERN} or PayPal \cite{PayPal}.
 
-Tolik kolik obsahuje clenu, tolik existuje zpusobu jak openstack vyuzivat.
+Lots of vendors and wide community mean lots of ways how OpenStack can be deployed.
 Each vendor tries to extend core functions and write new service backends to fit their business goals. The actual system consists of many modules and components designed with plugin architecture that allows custom implementations for various service backends. These components can be combined and configured to match available software and hardware resources and real use-case needs.
 
-Each implementation has its own component combination and use some form of configuration management tool to enforce the service states on designated servers and possibly other network components. These tools require data that covers configuration of all components. Detecting component inconsistencies by hand is painful and time consuming process.
+Each implementation has its own component combination and use some form of configuration management tool to enforce the service states on designated servers and possibly other network components. These tools require data that covers configuration of all components. Hovewer, there is not best practise or recommendations how to build suitable OpenStack cloud for different use cases. Detecting component inconsistencies by hand is painful and time consuming process.
+Companies need standardization and validation process for their specific infrastructure requirements, which can help them automate whole implementation, operating and future OpenStack upgrades. 
 
-We propose a formalization of OpenStack service architecture model, based on the approaches developed in classic knowledge representation domain, especially Service-Oriented Architecture by OpenGroup. Component definition is encoded in an ontology using the standard OWL-DL language, which enables sharing of knowledge about configurations across various systems. Reasoning can be used on the specification to automate validation of configuration changes.
+Our project subgoals goals are to find an solution on the following issues:
+\begin{enumerate}
+ \item Design and create high level model architecture definition (Logical model)
+ \item Design realization from high level to low level model through configuration management tools (physical realization)
+ \item Provide way how to define and validate architecture based on hardware and target use case.
+ \item Automate whole process from high level modeling to implementation itself.
+\end{enumerate}
 
-When dealing with hundreds of components with thousands of properties and relations, keeping track of changes throughout its life cycle is very challenging. Current approaches are ad hoc, even OpenStack Fuel has severe limitations, there exists no standard for specifying common OpenStack architectural model. The question how to convert the proposed OWL-DL schema to metadata format that configuration management tools can process is discussed. We are working on external node classification service that uses graph database to serialize the OWL ontology with REST API that configuration management tools can use as metadata provider. This can streamline the process of adopting new services and service backends in predictable manner.
+This paper is focused on designing and creation of high level architecture model, where we propose a formalization of OpenStack service architecture model, based on the approaches developed in classic knowledge representation domain, especially Service-Oriented Architecture by OpenGroup. Component definition is encoded in an ontology using the standard OWL-DL language, which enables sharing of knowledge about configurations across various systems. Reasoning can be used on the specification to automate validation of configuration changes.
+
+When dealing with hundreds of components with thousands of properties and relations, keeping track of changes throughout its life cycle is very challenging. Current approaches are ad hoc, even OpenStack Fuel (Mirantis OpenStack deployment tool \cite{fuel}) has severe limitations, there exists no standard for specifying common OpenStack architectural model. The question how to convert the proposed OWL-DL schema to metadata format that configuration management tools can process is discussed. We are working on external node classification service that uses graph database to serialize the OWL ontology with REST API that configuration management tools can use as metadata provider. This can streamline the process of adopting new services and service backends in predictable manner.
 
 \subsection{Use Cases}
 
