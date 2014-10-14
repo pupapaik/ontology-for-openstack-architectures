@@ -1,9 +1,66 @@
 
 \section{Ontology Usage}
+\label{chap:usage}
 
 % ontologie mohou dobre popsat openstack architekturu, protoze openstack vyuziva message bus, service catalog. Ontologie slouzi pak nad ramec openstack sluzeb u serveru ale definuji i vlastni operacni systemy a pridruzene sluzby - monitorting, metering, firewally, backupy, log management atd
 
-We started mapping the very
+The journey to mapping high level models in ontologies was long. It was a process of describing everchanging architectures of OpenStack cloud installations over past 2 years. The OpenStack released 4 major versions with 12 minor changes. The number of software components grew from 5 to 17. At the beginnings we started mapping meta-data models in separate files containing complete meta-data set of all services for each server or device. The meta-data was encoded in YAML format. This approach was manageable at earlier versions of OpenStack we tested and just the basic set of OpenStack services existed at the time. 
+
+\begin{lstlisting}
+service_name:
+  service_role:
+    data_parameter1: data_value1
+    data_parameter2: data_value2
+    data_parameter3:
+    - data_value3a
+    - data_value3b    
+    object_parameter:
+     object1:
+       data_parameter1a: 
+\end{lstlisting}
+
+
+The next step was storing the service meta-data in hierarchical databases. The meta-data was split into components. 
+
+
+All services  can be very well described by ontology as they communicate over common message bus, serialize their state and expose services through interfaces in a standard way. Nevertheless the optimal installations consist of at least following services.
+
+All nodes providing contain basic set of
+
+linux.system, linux.network, linux.storage - Basic configuration of network interfaces, users, volume, mounts, etc.
+
+ntp.client - Time synchronisation is important when using common message bus
+
+salt.minion/pupper.agent - Configuration management client provide
+
+collectd.client, sensu.client - Monitoring services that provide common checks and meters for other services hosted on the same servers.
+
+Controller node
+
+mysql.cluster, rabbitmq.cluster, haproxy.proxy, corosync.cluster -
+
+keystone.server, glance.server, nova.server, neutron.server, cinder.server, horizon.server - 
+
+neutron.bridge -
+
+Compute node
+
+nova.compute, neutron.switch
+
+\begin{figure}[!h]
+\centering
+\begin{lstlisting}
+service_name:
+  service_role:
+    data_parameter1: data_value1
+    data_parameter2: {service_name:service_role:data_paramer1}
+    object_parameter:
+     {otherobject:object1}
+\end{lstlisting}
+\caption{YAML encoded meta-data}
+\label{fig:cm}
+\end{figure}
+
 
 % ontologie je multitenantni podporuje vice reseni najednou
 

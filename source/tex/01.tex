@@ -6,9 +6,9 @@
 
 Nowadays IT infrastructure is the key component for almost every organization across different domains, but it must be maximally effective with the lowest investment and operating costs.
 For this reason, cloud Infrastructure as a Service (IaaS) is gradually being accepted as the right solution regardless hosting as private, public or hybrid form. Lots of key vendors had tried to develop own solutions for IaaS clouds during several years ago,
-but infrastructure is being too complex and heterogeneous. Different vendors means different technology, which caused vendor lock-in and limitations in migrations for future growing. In addition, every organization has different requirements for hardware, software and its purpose. 
+but infrastructure is being too complex and heterogeneous. Different vendors means different technology, which caused vendor lock-in and limitations in migrations for future growth. In addition, every organization has different requirements for hardware, software and its use. 
 
-Based on the idea of openness, scalability and standardization of IaaS cloud platform NASA together with RackSpace founded in 2010 project called OpenStack, which is a free and open source cloud operating system that controls large pools of compute, storage, and networking resources through
+Based on the idea of openness, scalability and standardization of IaaS cloud platform NASA together with RackSpace founded in 2010 project called OpenStack, which is a free and open source cloud operating system that controls large pools of compute, storage, and networking resources across the
 datacenter. It is the largest open-source cloud computing platform today \cite{OpenStack}. Community is driven by industry vendors as IBM, Hewlett-Packard, Intel, Cisco, Juniper, Red Hat, VMWare, EMC, Mirantis, Cannonical, etc. In terms of numbers the OpenStack community contains about 2,292 companies, 8,066 individual members and 89,156 code contributors from 130 different countries \cite{STACKALYTICS}.
 These figures confirm that OpenStack belongs to the largest solution for IaaS cloud.
 
@@ -17,35 +17,37 @@ OpenStack is a modular, scalable system, which can run on a single personal comp
 Lots of vendors and wide community mean lots of ways how OpenStack can be deployed.
 Each vendor tries to extend core functions and write new service backends to fit their business goals. The actual system consists of many modules and components designed with plugin architecture that allows custom implementations for various service backends. These components can be combined and configured to match available software and hardware resources and real use-case needs.
 
-Each implementation has its own component combination and use some form of configuration management tool to enforce the service states on designated servers and possibly other network components. These tools require data that covers configuration of all components. Hovewer, there is not best practise or recommendations how to build suitable OpenStack cloud for different use cases. Detecting component inconsistencies by hand is painful and time consuming process.
-Companies need standardization and validation process for their specific infrastructure requirements, which can help them automate whole implementation, operating and future OpenStack upgrades. 
+Each implementation has its own component combination and use some form of configuration management tool to enforce the service states on designated servers and possibly other network components. These tools require data that covers configuration of all components. However, there is not best practise or recommendations how to build suitable OpenStack cloud for different use cases. Detecting component inconsistencies manually is painful and time consuming process.
+Companies need standardization and validation process for their specific infrastructure requirements, which can help them automate whole implementation, operating and future upgrades of controlling software or physical hardware. 
 
-Our project subgoals goals are to find an solution on the following issues:
+Our project goals are to find a solution to the following issues:
+
 \begin{enumerate}
- \item Design and create high level model architecture definition (Logical model)
- \item Design realization from high level to low level model through configuration management tools (physical realization)
- \item Provide way how to define and validate architecture based on hardware and target use case.
- \item Automate whole process from high level modeling to implementation itself.
+ \item Propose high level architecture model definition (Logical model)
+ \item Implement service that transforms architecture model to solution level model for configuration management tools (physical realization)
+ \item Provide way how to define and validate architecture based on available hardware resources and target use case.
+ \item Automate the whole process from high level modelling to actual enforcement on targetted resources.
 \end{enumerate}
 
 This paper is focused on designing and creation of high level architecture model, where we propose a formalization of OpenStack service architecture model, based on the approaches developed in classic knowledge representation domain, especially Service-Oriented Architecture by OpenGroup. Component definition is encoded in an ontology using the standard OWL-DL language, which enables sharing of knowledge about configurations across various systems. Reasoning can be used on the specification to automate validation of configuration changes.
 
-When dealing with hundreds of components with thousands of properties and relations, keeping track of changes throughout its life cycle is very challenging. Current approaches are ad hoc, even OpenStack Fuel (Mirantis OpenStack deployment tool \cite{fuel}) has severe limitations, there exists no standard for specifying common OpenStack architectural model. The question how to convert the proposed OWL-DL schema to metadata format that configuration management tools can process is discussed. We are working on external node classification service that uses graph database to serialize the OWL ontology with REST API that configuration management tools can use as metadata provider. This can streamline the process of adopting new services and service backends in predictable manner.
+When dealing with hundreds of components with thousands of properties and relations, keeping track of changes throughout its life cycle is very challenging. Current approaches are ad hoc, even OpenStack Fuel (Mirantis OpenStack deployment tool \cite{fuel}) has severe limitations, there exists no standard for specifying common OpenStack architectural model. The question how to convert the proposed OWL-DL schema to metadata format that configuration management tools can process is discussed. We are working on external node classification service that uses graph database to serialize the OWL ontology with REST API that configuration management tools can use as metadata provider. This can streamline the process of adopting new services and service backends in predictable way.
 
-\subsection{Use Cases}
+In Section \ref{chap:service} we describe service architecture models, which contain OpenStack moduls, deployment, etc. After we explain ontology models for IaaS cloud in Section \ref{chap:ontology}. Finally we show how to implement high level model into ontology in Section \ref{chap:usage}. 
+% \subsection{Use Cases}
 
-OpenStack is system that has growing number of components with growing number of components and drivers. As we will show in following text there's no universal installation of OpenStack.  
+%OpenStack is system that has growing number of components with growing number of components and drivers. As we will show in following text there's no universal installation of OpenStack.  
 
 % představit OpenStack jako systém s rolemi, konfiguracemi, komponenty, drivery. jina instalace per use case. Nexexistuje univerzální instalace. Vysoka komplexita, services
 
-\subsection{Infrastructure Modeling}
+%\subsection{Infrastructure Modeling}
 
-Tools usually collect required metadata through web forms or answer files. This is not a conceptual way to describe model.
+%Tools usually collect required metadata through web forms or answer files. This is not a conceptual way to describe model.
 
 % Jak vytvořit high level model (logické schéma) architektury? a přenést ji do low level design realizace? 
 % Jak správně definovat architekturu na základě hw infrastruktury a target use case?
 
-\subsection{Process Automation}
+%\subsection{Process Automation}
 
 % Jak celý proces deploymentu automatizovat?
 
