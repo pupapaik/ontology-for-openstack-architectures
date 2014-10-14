@@ -1,12 +1,14 @@
 
 \section{Conclusion}
 
-We have managed to do the first step to formalize and use IaaS Service Ontology to alleviate system operators tasks. The ontology can be used to create and validate meta-data for individual OpenStack installations. The generated meta-data is used to set-up variety of services from core, maintenance to actual OpenStack services. 
+We have managed to do the first steps in formalization and real usage of IaaS high level models. The final representation of models, the ontologies, can now be used to create and validate meta-data for individual OpenStack cloud installations. The ontology provides schema for the meta-data for each installation so the overall integrity is ensured.
 
-The ontology is  
+We created web a service that use the ontology to generate the suitable meta-data for configuration management tools. The service provide simple interface for manipulating the ontology as well as interfaces to other ontology editors. The ontology covers the basic services of OpenStack Havana version. It is possible to easily define new components and service backends.
 
-Ontologická reprezentace prostředí, která je vhodná pro agentové prostředí, aby bylo možné provádět autonomní rozhodnutí. 
+% Ontologická reprezentace prostředí, která je vhodná pro agentové prostředí, aby bylo možné provádět autonomní rozhodnutí. 
 
 \subsection{Future work}
 
-In the future we plan expand mapping ontology to network and storage resources in addition to servers with configuration tools. Ontology model is suitable for software agent processing and their rational decisions. It is possible to define processes that will maintain the configuration of real services in accordance to model systems.
+We plan to expand mapping ontology from virtual and physical servers to network and storage resources by adopting configuration management tools. The service handling 
+
+Ontology model is suitable for software agent processing and their rational decisions. It is possible to define agents that will maintain the state of services according to the high-level model.

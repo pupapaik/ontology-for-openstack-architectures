@@ -2,199 +2,87 @@
 \section{Service Architecture Models}
 \label{chap:service}
 
-Infrastructure as a Service platforms at it's core controls various virtualization interfaces and services and allows to launch a new virtual server from given disk image at chosen host server, connect it to provided physical or virtual network and add block storage device to it. The OpenStack platform provides services that address needed to provide the very basic compute, network and storage services. The identity provider and image store  provide further services needed to provide the basic sevices.
 
-Nebula was the predecessor of OpenStack and was superseded because it did not scale well. The services withing OpenStack communicate through 3 various communication channels
+%Infrastructure as a Service platforms at it's core controls various virtualization interfaces and services and allows to launch a new virtual server from given disk image at chosen host server, connect it to provided physical or virtual network and add block storage device to it. The OpenStack platform provides services that address needed to provide the very basic compute, network and storage services. The identity provider and image store  provide further services needed to provide the basic sevices.
+%Nebula was the predecessor of OpenStack and was superseded because it did not scale well. The services withing OpenStack communicate through 3 various communication channels
+%TCP/SQL - Services store it's state in SQL datastore
+%AMQP - Service internally communicate over asychronous communication bus which .... Compute service calls network service 
+%HTTP - All services expose REST APIs that allow higher level integration, control ...
 
-TCP/SQL - Services store it's state in SQL datastore
+This section describes modularity and complexity of OpenStack IaaS platform including core and supporting services. However, there is not so much place for detail description of all components, since the main idea is contained in Sections \ref{chap:ontology} and \ref{chap:usage}. 
+The goal of this section is to show that OpenStack modules are independent services, which can be implemented in lots of ways. 
 
-AMQP - Service internally communicate over asychronous communication bus which .... Compute service calls network service 
-
-HTTP - All services expose REST APIs that allow higher level integration, control ...
-
-\subsection{Architectural Level}
+\subsection{IaaS Architecture Core Modules}
 
 OpenStack is complete Infrastructure as a Service platform. It allows to create virtual servers on virtual networks using virtual block devices.
 
-%Jak funguje IaaS ve smyslu deploye masiny z pohledu controlleru - zavola scheduler, ten comupte, ten pak glance, pak pripadne cinder a neutron a pusti boot, kdyz to ma ready. a tim padem provoz.
-
-\begin{figure}[!h]
+\begin{figure}[h]
 \centering
-\includegraphics[scale=.2]{img/openstack_logical_model.eps}
-\caption{Logical Model of Havana OpenStack}
-\label{fig:cm}
-\end{figure}
-
-Further versions of OpenStack introduce more sophisticated services that use basic services to Data processsing 
-
- These core services are followed by growing number of services covering for example telemetry, orchestration or data processing. All services within OpenStack architecture have pluggable backends. This allows vendors to develop plugin for their resources, that can be accessed and managed by the OpenStack API.
-
-Following Figure shows the basic configuration of OpenStack in Icehouse version.
-
-\begin{figure}[!h]
-\centering
-\includegraphics[scale=.2]{img/openstack_logical_model.eps}
+\includegraphics[scale=.13]{img/openstack_logical_model.eps}
 \caption{Logical Model of Icehouse OpenStack service achitecture}
-\label{fig:cm}
+\label{fig:moduls}
 \end{figure}
 
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=.15]{img/use_case_ha_sdn.eps}
+\caption{Locality 2 Architecture}
+\label{fig:pisek}
+\end{figure}
 
-Klasicky logicky model openstack architektury
+%Jak funguje IaaS ve smyslu deploye masiny z pohledu controlleru - zavola scheduler, ten comupte, ten pak glance, pak pripadne cinder a neutron a pusti boot, kdyz to ma ready. a tim padem provoz.
+Further versions of OpenStack introduce more sophisticated services that use basic services to Data processsing.
+These core services are followed by growing number of services covering for example telemetry, bare metal provisioning, orchestration or data processing. All services or modules within OpenStack architecture are independent and have pluggable backends or drivers. This allows vendors to develop plugin for their resources, that can be accessed and managed by the OpenStack API.
 
-2) OpenStack architecture moduls
+Figure \ref{fig:moduls} shows the core modules of OpenStack included in Icehouse release. Each module is briefly described including a serveral backends or plugins.
+
+
+%Klasicky logicky model openstack architektury
+
+%2) OpenStack architecture moduls
 
 % Rozebrat services a představit modularitu a vendor plugins, drivers
 
-Database
+\textbf{Identity - Keystone} is an OpenStack project that provides Identity, Token, Catalog and Policy services for use specifically by projects in the OpenStack family. 
+\textit{Backends/plugins}: sql, ldap
 
-Message queue
+\textbf{Image - Glance} service provides services for virtual disk images. Compute service uses image service to get the starting image of the virtual server.
+\textit{Backends/plugins}: dir, Swift, Amazon S3
 
-Time service
+\textbf{Compute - Nova} service is designed to provision and manage large networks of virtual machines, creating a redundant and scalable cloud-computing platform. 
+\textit{Backends/plugins}: KVM, Hyper-V, VMware vSphere, Docker
 
-Identity - Keystone
+\textbf{Network - Neutron} is an OpenStack networking project focused on delivering networking as a service. It makes hard to deploy advanced networking services because of wide range of plugins.
+\textit{Backends/plugins}: Nova flat networking, OpenVSwitch gre/vxlan, OpenContrail, VMware NSX, etc.
 
-Image - Glance
-
-Compute - Nova
-
-Network - Neutron
-
-Volume - Cinder
-
-\subsection{IaaS Controller Support Services}
-
-This section covers the 
-
-Real implementations of Architectural models
-
-\subsubsection{High Availability Services}
-
-Cluster software
-- corosync/pacemaker
-- keepalived
-
-\subsubsection{Communication Services}
-
-RPC
-
-- rabbitmq
-
-- qpid
-
-- 0mq
-
-\subsubsection{Database Services}
-
-Database
-
-- mysql/galera
-
-- postgressql/xtradb
-
-\subsubsection{Time Synchronization Services}
-
-time
-
-- ntp
-
-\subsection{Iaas Controller Core Services}
-
-APIs
-
-Pluggable backends
-
-\subsubsection{Identity Service}
-
-Keystone is an OpenStack project that provides Identity, Token, Catalog and Policy services for use specifically by projects in the OpenStack family.
-
-- sql	
-
-- ldap
-
-\subsubsection{Image Service}
-
-OpenStack Image service (code-named Glance) provides services for virtual disk images. Compute service uses image service to get the starting image of the virtual server.
-
-OpenStack Image service handles variety of disk image formats, including Raw, Machine (kernel/ramdisk outside of image, also known as AMI), VHD (Hyper-V), VDI (VirtualBox), and qcow2 (Qemu/KVM).
-
-- dir
-
-- swift
-
-- s3
-
-\subsubsection{Compute Service}
-
-OpenStack Compute service (code-name Nova) is designed to provision and manage large networks of virtual machines, creating a redundant and scalable cloud-computing platform.  It provides the software required to orchestrate compute instances through using libvirt or or other virtualization client libraries. OpenStack Compute service is both hardware and hypervisor agnostic, currently supporting a variety of standard hardware configurations and major hypervisors.
-
-- kvm
-
-- qemu
-
-- docker
-
-- hyper-v
-
-- vsphere
-
-\subsubsection{Network Service}
-
-Neutron is an OpenStack networking project focused on delivering networking as a service. Neutron has replaced the original networking application program interface (API) in OpenStack. Neutron is designed to address deficiencies in “baked-in” networking technology found in cloud environments, as well as the lack of tenant control (in multi-tenant environments) over the network topology and addressing, which makes it hard to deploy advanced networking services.
+\textbf{Volume - Cinder} provides an infrastructure for managing volumes in OpenStack. It uses storage drivers for volumes direct mapping into virtual instances through FibreChannel or iSCSI. 
+\textit{Backends/plugins}: LVM driver, SAN driver, EMC VNX, IBM Storwize, CEPH, Gluster, etc.
 
 
-- flat networking
+OpenStack is not only about its modules, but there are many services
 
-- ovs-gre/vxlan
+\textbf{High Availability Cluster software} is responsible for clustering OpenStack services and creation High Availability in active/active or active/passive mode.
+\textit{Backends/plugins}: corosync/pacemaker, keepalived
 
-- sdn
+\textbf{Communication Service} is messaging between components of same OpenStack module.
+\textit{Backends/plugins}: RabbitMQ, QPid, ZeroMQ
 
-  - opencontail
-  
-  - nsx
+\textbf{Database Services} is responsible for storing persistent data of all modules.
+\textit{Backends/plugins}: mysql/galera, postgressql
 
-\subsubsection{Volume Service}
-
-Cinder
-
-- lvms
-
-- sans
-
-Různé způsoby nasazení ukázky reálné architektury - promapovat ve 4 na ontologii
+%Různé způsoby nasazení ukázky reálné architektury - promapovat ve 4 na ontologii
 
 \subsection{Use Cases}
 
-Why we choose different openstack setups
+We participate in operations of several real OpenStack deployments in Central Eastern Europe. Each of them is different, which means that uses different backends in modules.
+Because of lack of space we decided to show only one use case. Figure \ref{fig:pisek} shows the logical architecture of TCP Virtual Private Cloud.
 
-\subsubsection{Locality 1}
-
-At CEPSOS laboratory have deployed 
-
-\begin{figure}[!h]
-\centering
-\includegraphics[scale=.2]{img/use_case_ha_gre.eps}
-\caption{Locality 1 Architecture}
-\label{fig:cm}
-\end{figure}
-
-- 20 hypervisors, kvm, ovs-gre, local hdd
-
-\subsubsection{Locality 2}
-
-At Cloudlab in datacenter in Pisek we tested
-
-\begin{figure}[!h]
-\centering
-\includegraphics[scale=.2]{img/use_case_ha_sdn.eps}
-\caption{Locality 2 Architecture}
-\label{fig:cm}
-\end{figure}
-
-- 4 hypervisoers, kvm, sdn-contrail, san
-
-\subsubsection{Locality 3}
-
-At Cloudlab in datacenter in Pisek we tested
+%\begin{figure}[!h]
+%\centering
+%\includegraphics[scale=.2]{img/use_case_ha_gre.eps}
+%\caption{Locality 1 Architecture}
+%\label{fig:cm}
+%\end{figure}
 
 %\begin{figure}[!h]
 %\centering
@@ -202,7 +90,3 @@ At Cloudlab in datacenter in Pisek we tested
 %\caption{Locality 3 Architecture}
 %\label{fig:cm}
 %\end{figure}
-
-
-- 3 hypervisors, ... l2 networking 
-

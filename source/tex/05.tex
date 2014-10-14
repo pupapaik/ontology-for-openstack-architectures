@@ -4,9 +4,13 @@
 
 % ontologie mohou dobre popsat openstack architekturu, protoze openstack vyuziva message bus, service catalog. Ontologie slouzi pak nad ramec openstack sluzeb u serveru ale definuji i vlastni operacni systemy a pridruzene sluzby - monitorting, metering, firewally, backupy, log management atd
 
-The journey to mapping high level models in ontologies was long. It was a process of describing everchanging architectures of OpenStack cloud installations over past 2 years. The OpenStack released 4 major versions with 12 minor changes. The number of software components grew from 5 to 17. At the beginnings we started mapping meta-data models in separate files containing complete meta-data set of all services for each server or device. The meta-data was encoded in YAML format. This approach was manageable at earlier versions of OpenStack we tested and just the basic set of OpenStack services existed at the time. 
+The journey to mapping high level models in ontologies was long. It was a process of describing everchanging OpenStack cloud architectures over past 2 years. The OpenStack foundation has released 4 major versions with 12 minor versions over that period. The number of managed software components grew from 5 to 17. At the beginnings we started mapping meta-data models in separate files containing complete meta-data set of all services for each server or device. The meta-data was encoded in YAML format. This approach was fine at earlier versions of OpenStack we tested as just the basic set of OpenStack services existed at the time. 
 
-\begin{lstlisting}
+\medskip
+
+\noindent
+{\it Simple meta-data in YAML format}
+\begin{verbatim}
 service_name:
   service_role:
     data_parameter1: data_value1
@@ -17,56 +21,49 @@ service_name:
     object_parameter:
      object1:
        data_parameter1a: 
-\end{lstlisting}
+\end{verbatim}
+\noindent
 
+The next step was storing the service meta-data in hierarchical databases. The meta-data was split into separate files. The final meta-data for given resources is assembled using the two simple methods. The deep merging of several service definition fragments and parameter interpolation where parameters can be referenced. The reclass \cite{Reclass} was used to implement the desired data manipulation behaviour.
 
-The next step was storing the service meta-data in hierarchical databases. The meta-data was split into components. 
+\medskip
 
-
-All services  can be very well described by ontology as they communicate over common message bus, serialize their state and expose services through interfaces in a standard way. Nevertheless the optimal installations consist of at least following services.
-
-All nodes providing contain basic set of
-
-linux.system, linux.network, linux.storage - Basic configuration of network interfaces, users, volume, mounts, etc.
-
-ntp.client - Time synchronisation is important when using common message bus
-
-salt.minion/pupper.agent - Configuration management client provide
-
-collectd.client, sensu.client - Monitoring services that provide common checks and meters for other services hosted on the same servers.
-
-Controller node
-
-mysql.cluster, rabbitmq.cluster, haproxy.proxy, corosync.cluster -
-
-keystone.server, glance.server, nova.server, neutron.server, cinder.server, horizon.server - 
-
-neutron.bridge -
-
-Compute node
-
-nova.compute, neutron.switch
-
-\begin{figure}[!h]
-\centering
-\begin{lstlisting}
+\noindent
+{\it Meta-data in YAML format, parameter interpolation}
+\begin{verbatim}
 service_name:
   service_role:
     data_parameter1: data_value1
     data_parameter2: {service_name:service_role:data_paramer1}
     object_parameter:
      {otherobject:object1}
-\end{lstlisting}
-\caption{YAML encoded meta-data}
-\label{fig:cm}
-\end{figure}
+\end{verbatim}
+\noindent
 
+This was elegant solution that could easily model growing number of services, but still lacked mechanisms to validate given data or encapsulate semantics. It helped to determine the domain and scope of new ontology. The ontology should use existing standards and provide vocabulary to define OpenStack services, core services and later network and storage resources. The ontology should provide mechanisms to validate schema for integrity issues, as missing parameters, disjoint services or values out of proper value domain.
 
 % ontologie je multitenantni podporuje vice reseni najednou
 
-The Ontology can support many individual implementations at the time
+All OpenStack services can be very well described by ontology as they communicate over common message bus, serialize their state and expose services through interfaces in a same way. The resource within ontology have data properties that are derived mostly from Dublin Core metadata terms. Other extensively used standard is OCLS Configuration Management resource definitions and Service-Oriented Architecture Ontology.  Resources can have object property types that describe more complex relations. Following example shows excerpt from Glance image service definition on the the controller node: 
 
-% 
+\medskip
+
+\noindent
+{\it Meta-data in OWL-DL format}
+\begin{verbatim}
+  <owl:Class rdf:about="#CinderVolumeService">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#VolumeService"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#NovaVolumeService"/>
+    </owl:disjointWith>
+  </owl:Class>
+\end{verbatim}
+\noindent
 
 \subsection{Implementation details}
 
@@ -92,82 +89,38 @@ We have successfully tested service status enforcemet of several complete OpenSt
 
 The deployment process is not yet fully automated as there is need of setting up network and storage resources manually, but the progress in both configuration management tools and network and storage will allow better automation of these components by in-place agents or access protocols like SSH in the future.
 
-\subsection{Samples of Ontology}
+\subsection{Model Architecture Sample}
 
-Given use case scenario Lab1 we have 3 virtual servers providing OpenStack and other core services in high-availability mode. These servers are virtualised in common. 20 physical servers  
+Given use case scenario Locality 2 we have 3 virtual servers providing OpenStack and other core services with 2 virtual servers providing SDN controllers in high-availability mode.
 
-\subsubsection{Service components of controller1}
+\subsubsection{Common service components}
 
-Services located on controller server
+All servers within archecture contain basic set of services necessary for long-term operation.
 
-\begin{lstlisting}
-  <owl:Class rdf:about="#Glance">
-    <owl:disjointWith>
-      <owl:Class rdf:about="#"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#ServiceInterface"/>
-    </owl:disjointWith>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Composition"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-\end{lstlisting}
+linux.system, linux.network, linux.storage - Basic configuration of network interfaces, users, volume, mounts, etc.
 
-\subsubsection{Detail of service glance.image}
+ntp.client - Time synchronisation accress all resources is important for correct communication incommon message bus
 
-On of the services defined on the controller node is image service Glance. Following definitiong
+salt.minion/pupper.agent - Configuration management clients enforce the model configuration to the actual servers.
 
+collectd.client, sensu.client - Monitoring services that provide common checks and meters for all services on the same server.
 
-\begin{lstlisting}
-  <owl:Class rdf:about="#Glance">
-    <owl:disjointWith>
-      <owl:Class rdf:about="#"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#ServiceInterface"/>
-    </owl:disjointWith>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Composition"/>
-    </rdfs:subClassOf>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#ServiceInterface"/>
-    </owl:disjointWith>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Composition"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-\end{lstlisting}
+\subsubsection{OpenStack Controller service components}
 
-\subsubsection{Detail of data property type}
+OpenStack controller node provides core OpeStack services in 
 
-The resource can have data property and are derived mostly from Dublin Core metadata terms.
+mysql.cluster, rabbitmq.cluster, haproxy.proxy, corosync.cluster - These services form the highly available foundation for the
 
-\begin{lstlisting}
-  <owl:Class rdf:about="#Glance">
-    <owl:disjointWith>
-      <owl:Class rdf:about="#"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#ServiceInterface"/>
-    </owl:disjointWith>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Composition"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-\end{lstlisting}
+keystone.server, glance.server, nova.server, cinder.server, horizon.server - are services running on each controller providing capacity for load-balancing and disaster recovery.
 
-\subsubsection{Detail of object property database}
+\subsubsection{SND Controller service components}
 
-Resources can have object property types that describe more complex relations. 
+SDN controller node controls the network resources.
 
-\begin{lstlisting}
-  <owl:Class rdf:about="#Glance">
-    <owl:disjointWith>
-      <owl:Class rdf:about="#"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#ServiceInterface"/>
-    </owl:disjointWith>
-  </owl:Class>
-\end{lstlisting}
+neutron.server, contrail.analytis, contrail.control, contrail.config - Configure
+
+\subsubsection{Compute node service components}
+
+Compute nodes hava the least services and these control the actual virtual server spawning.
+
+nova.compute, neutron.switch - These services control the actual virtualisation service, prepare the environment as networks and volumes for new servers and operate them.
