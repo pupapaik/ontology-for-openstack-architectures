@@ -236,7 +236,7 @@
             <y:Point x="142.47027587890625" y="334.5103759765625"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="5.0"/>
-          <y:Arrows source="none" target="delta"/>
+          <y:Arrows source="delta" target="none"/>
           <y:Arc height="-22.638904571533203" ratio="-0.42009687423706055" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
@@ -266,7 +266,6 @@
       </data>
     </edge>
     <edge id="e11" source="n0" target="n5">
-      <data key="d9"/>
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -279,54 +278,63 @@
       </data>
     </edge>
     <edge id="e12" source="n3" target="n5">
-      <data key="d9"/>
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
             <y:Point x="516.208740234375" y="568.6761474609375"/>
           </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
+          <y:LineStyle color="#000000" type="line" width="5.0"/>
+          <y:Arrows source="none" target="delta"/>
           <y:Arc height="-86.86841583251953" ratio="-0.4319645166397095" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
     </edge>
     <edge id="e13" source="n6" target="n5">
-      <data key="d9"/>
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
             <y:Point x="871.9281616210938" y="499.59649658203125"/>
           </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
+          <y:LineStyle color="#000000" type="line" width="5.0"/>
+          <y:Arrows source="none" target="delta"/>
           <y:Arc height="-60.769813537597656" ratio="-0.6719251275062561" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
     </edge>
     <edge id="e14" source="n3" target="n0">
-      <data key="d9"/>
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
             <y:Point x="-76.7988052368164" y="543.221435546875"/>
           </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
+          <y:LineStyle color="#000000" type="line" width="5.0"/>
+          <y:Arrows source="none" target="delta"/>
           <y:Arc height="103.68482208251953" ratio="1.0" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
     </edge>
     <edge id="e15" source="n6" target="n0">
-      <data key="d9"/>
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
             <y:Point x="309.8995666503906" y="581.7271728515625"/>
           </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
+          <y:LineStyle color="#000000" type="line" width="5.0"/>
+          <y:Arrows source="none" target="delta"/>
           <y:Arc height="98.10570526123047" ratio="0.413936048746109" type="fixedRatio"/>
+        </y:ArcEdge>
+      </data>
+    </edge>
+    <edge id="e16" source="n5" target="n0">
+      <data key="d9"/>
+      <data key="d10">
+        <y:ArcEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="372.875" y="180.28936767578125"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="5.0"/>
+          <y:Arrows source="none" target="delta"/>
+          <y:Arc height="-131.58209228515625" ratio="-0.5661444067955017" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
     </edge>
