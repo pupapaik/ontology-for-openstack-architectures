@@ -10,7 +10,7 @@
 %HTTP - All services expose REST APIs that allow higher level integration, control ...
 
 This section describes modularity and complexity of OpenStack IaaS platform including core and supporting services. However, there is not so much place for detail description of all components, since the main idea is contained in Sections \ref{chap:ontology} and \ref{chap:usage}. 
-The goal of this section is to show that OpenStack modules are independent services, which can be implemented in lots of ways. 
+The goal of this section is to show that OpenStack modules are independent services, which can be implemented in many different of ways. 
 
 \subsection{IaaS Architecture Core Modules}
 
@@ -31,8 +31,8 @@ OpenStack is complete Infrastructure as a Service platform. It allows to create 
 \end{figure}
 
 %Jak funguje IaaS ve smyslu deploye masiny z pohledu controlleru - zavola scheduler, ten comupte, ten pak glance, pak pripadne cinder a neutron a pusti boot, kdyz to ma ready. a tim padem provoz.
-Further versions of OpenStack introduce more sophisticated services that use basic services to Data processsing.
-These core services are followed by growing number of services covering for example telemetry, bare metal provisioning, orchestration or data processing. All services or modules within OpenStack architecture are independent and have pluggable backends or drivers. This allows vendors to develop plugin for their resources, that can be accessed and managed by the OpenStack API.
+
+Further versions of OpenStack introduce more complex services that use basic services to provide for example Data processsing, Database, Message Queue  or Orchestration. All services or modules within OpenStack architecture are independent and have pluggable backends or drivers. This allows vendors to develop plugin for their resources, that can be accessed and managed by the OpenStack API.
 
 Figure \ref{fig:moduls} shows the core modules of OpenStack included in Icehouse release. Each module is briefly described including a serveral backends or plugins.
 
@@ -58,8 +58,7 @@ Figure \ref{fig:moduls} shows the core modules of OpenStack included in Icehouse
 \textbf{Volume - Cinder} provides an infrastructure for managing volumes in OpenStack. It uses storage drivers for volumes direct mapping into virtual instances through FibreChannel or iSCSI. 
 \textit{Backends/plugins}: LVM driver, SAN driver, EMC VNX, IBM Storwize, CEPH, Gluster, etc.
 
-
-OpenStack is not only about its modules, but there are many services
+OpenStack is not only about its core services, but there are many services at infrastructural level that are essential as well.
 
 \textbf{High Availability Cluster software} is responsible for clustering OpenStack services and creation High Availability in active/active or active/passive mode.
 \textit{Backends/plugins}: corosync/pacemaker, keepalived
@@ -68,7 +67,7 @@ OpenStack is not only about its modules, but there are many services
 \textit{Backends/plugins}: RabbitMQ, QPid, ZeroMQ
 
 \textbf{Database Services} is responsible for storing persistent data of all modules.
-\textit{Backends/plugins}: mysql/galera, postgressql
+\textit{Backends/plugins}: MySQL/galera, PostgreSQL
 
 %Různé způsoby nasazení ukázky reálné architektury - promapovat ve 4 na ontologii
 

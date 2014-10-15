@@ -70,7 +70,7 @@ All OpenStack services can be very well described by ontology as they communicat
 % Vytvorerin ontologie - protoege, na zaklade SOA ontologie
 % testovani reasoningu pres pellet vyvozovani
 
-Initial work on creating our Ontology was done in Protege, open-source ontology editor and framework for building intelligent systems.
+Initial work on creating our Ontology was done in Protege, open-source ontology editor and framework for building intelligent systems. It took some time to evolve ontology classes with propertice and create necessary dictionaries \cite{OntologyEvolution} to cover first IaaS architectures.
 
 The ontology is transformed into graph database using our python-bases service named django-ENC that can read and write ontology from OWL-DL XML files created by Protege and communicates with neo4j graph database through REST API. The graph databases are part of family of NoSQL databases and offer much better performance at any volume of data.
 
@@ -81,46 +81,42 @@ The ontology is transformed into graph database using our python-bases service n
 \label{fig:cm}
 \end{figure}
 
-The django-ENC service  use  web framework Django to deliver web services and asynchronous task queue Celery to perform time consuming tasks like ontology assertions and synchronizations between XML and graph database. Service expose it's owns HTTP REST API that can be consumed by configuration management tools like Salt or Puppet through their External Node Classification option.
+The django-ENC service use web framework Django to provide web services and asynchronous task queue Celery to perform time consuming tasks like ontology assertions and synchronizations between XML and graph database. The HTTP REST API that can be consumed by configuration management tools like Salt or Puppet through their External Node Classification interface. The meta-data passed to configuration management tools is valid for level 1, 2 and 3 of unified cloud computing ontology \cite{OntologyComputing}. 
 
-The metada passed to CM tools is valid for 1st level of Cloud computing ontology [cite].
+We have successfully tested service status enforcement of several complete OpenStack installations by SaltStack configuration management tool with meta-data acquired from Ontology Service API. The deployment process is not yet fully automated as there is need of setting up network and storage resources manually (only servers are proviced), but the progress in both configuration management tools and network and storage will allow better automation of these components by in-place agents or access protocols like SSH in the future.
 
-We have successfully tested service status enforcemet of several complete OpenStack installations by SaltStack configuration management tool with metadata acquired from Ontology ENC API.
+% \subsection{Model Architecture Sample}
 
-The deployment process is not yet fully automated as there is need of setting up network and storage resources manually, but the progress in both configuration management tools and network and storage will allow better automation of these components by in-place agents or access protocols like SSH in the future.
+% Given use case scenario Locality 2 we have 3 virtual servers providing OpenStack and other core services with 2 virtual servers providing SDN controllers in high-availability mode.
 
-\subsection{Model Architecture Sample}
+%\subsubsection{Common service components}
 
-Given use case scenario Locality 2 we have 3 virtual servers providing OpenStack and other core services with 2 virtual servers providing SDN controllers in high-availability mode.
+%All servers within archecture contain basic set of services necessary for long-term operation.
 
-\subsubsection{Common service components}
+%linux.system, linux.network, linux.storage - Basic configuration of network interfaces, users, volume, mounts, etc.
 
-All servers within archecture contain basic set of services necessary for long-term operation.
+% ntp.client - Time synchronisation accress all resources is important for correct communication incommon message bus
 
-linux.system, linux.network, linux.storage - Basic configuration of network interfaces, users, volume, mounts, etc.
+% salt.minion/pupper.agent - Configuration management clients enforce the model configuration to the actual servers.
 
-ntp.client - Time synchronisation accress all resources is important for correct communication incommon message bus
+%collectd.client, sensu.client - Monitoring services that provide common checks and meters for all services on the same server.
 
-salt.minion/pupper.agent - Configuration management clients enforce the model configuration to the actual servers.
+%\subsubsection{OpenStack Controller service components}
 
-collectd.client, sensu.client - Monitoring services that provide common checks and meters for all services on the same server.
+%OpenStack controller node provides core OpeStack services in 
 
-\subsubsection{OpenStack Controller service components}
+%mysql.cluster, rabbitmq.cluster, haproxy.proxy, corosync.cluster - These services form the highly available foundation for the
 
-OpenStack controller node provides core OpeStack services in 
+%keystone.server, glance.server, nova.server, cinder.server, horizon.server - are services running on each controller providing capacity for load-balancing and disaster recovery.
 
-mysql.cluster, rabbitmq.cluster, haproxy.proxy, corosync.cluster - These services form the highly available foundation for the
+%\subsubsection{SND Controller service components}
 
-keystone.server, glance.server, nova.server, cinder.server, horizon.server - are services running on each controller providing capacity for load-balancing and disaster recovery.
+%SDN controller node controls the network resources.
 
-\subsubsection{SND Controller service components}
+%neutron.server, contrail.analytis, contrail.control, contrail.config - Configure
 
-SDN controller node controls the network resources.
+%\subsubsection{Compute node service components}
 
-neutron.server, contrail.analytis, contrail.control, contrail.config - Configure
+%Compute nodes hava the least services and these control the actual virtual server spawning.
 
-\subsubsection{Compute node service components}
-
-Compute nodes hava the least services and these control the actual virtual server spawning.
-
-nova.compute, neutron.switch - These services control the actual virtualisation service, prepare the environment as networks and volumes for new servers and operate them.
+%nova.compute, neutron.switch - These services control the actual virtualisation service, prepare the environment as networks and volumes for new servers and operate them.

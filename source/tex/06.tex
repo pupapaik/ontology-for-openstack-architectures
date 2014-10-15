@@ -1,14 +1,12 @@
 
 \section{Conclusion}
 
-We have managed to do the first steps in formalization and real usage of IaaS high level models. The final representation of models, the ontologies, can now be used to create and validate meta-data for individual OpenStack cloud installations. The ontology provides schema for the meta-data for each installation so the overall integrity is ensured.
+We have managed to do the first steps in formalization of IaaS Architecture high level models. The representation of models, the ontologies, can be used to create and validate meta-data for individual OpenStack cloud installations. The ontology provides schema for the meta-data for each installation so the overall service integrity is ensured.
 
-We created web a service that use the ontology to generate the suitable meta-data for configuration management tools. The service provide simple interface for manipulating the ontology as well as interfaces to other ontology editors. The ontology covers the basic services of OpenStack Havana version. It is possible to easily define new components and service backends.
+We created a python-based web service django-enc that use data from the ontology to generate the suitable meta-data for configuration management tools. The service provide simple interface for manipulating the ontology as well as interfaces for ontology editors. The ontology defines the basic services of OpenStack Havana and Icehouse versions. New components and service backends can be easily defined and included.
 
 % Ontologická reprezentace prostředí, která je vhodná pro agentové prostředí, aby bylo možné provádět autonomní rozhodnutí. 
 
-\subsection{Future work}
+%\subsection{Future work}
 
-We plan to expand mapping ontology from virtual and physical servers to network and storage resources by adopting configuration management tools. The service handling 
-
-Ontology model is suitable for software agent processing and their rational decisions. It is possible to define agents that will maintain the state of services according to the high-level model.
+We plan to expand  ontology from virtual and physical servers to network and storage resources by better adoption of configuration management tools. Ontology model is suitable for software agent processing and their rational decisions. It is possible to define agents that will maintain the state of services according to the high-level model. The more parts of the process are modelled and their deployment automated the more manageable the whole system becomes.
