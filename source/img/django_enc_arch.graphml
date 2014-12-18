@@ -18,7 +18,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="112.15869411300895" width="481.8911506383285" x="-591.7405466209275" y="160.85389453325067"/>
-          <y:Fill color="#CCFFFF" transparent="false"/>
+          <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="5.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Arial" fontSize="32" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="78.5" modelName="custom" textColor="#000000" visible="true" width="287.921875" x="96.98463781916428" y="16.829347056504474">Protege
 Ontology Editor<y:LabelModel>
@@ -36,7 +36,7 @@ Ontology Editor<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="112.15869411300895" width="481.89115063832855" x="135.21018103820018" y="160.85389453325067"/>
-          <y:Fill color="#CCFFCC" transparent="false"/>
+          <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="5.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Arial" fontSize="32" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="78.5" modelName="custom" textColor="#000000" visible="true" width="370.046875" x="55.92213781916428" y="16.829347056504474">IaaS Ontology
 OWL/XML Document<y:LabelModel>
@@ -54,9 +54,9 @@ OWL/XML Document<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="112.15869411300893" width="481.89115063832855" x="862.1609086973278" y="160.85389453325067"/>
-          <y:Fill color="#CCFFFF" transparent="false"/>
+          <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="5.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Arial" fontSize="32" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="78.5" modelName="custom" textColor="#000000" visible="true" width="348.359375" x="66.76588781916428" y="16.829347056504474">Pellet
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Arial" fontSize="32" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="78.5" modelName="custom" textColor="#000000" visible="true" width="348.359375" x="66.76588781916439" y="16.829347056504474">Pellet
 Ontology Reasoner<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -72,7 +72,7 @@ Ontology Reasoner<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="112.15869411300889" width="481.8911506383286" x="135.21018103820015" y="374.73016380285895"/>
-          <y:Fill color="#CCFFFF" transparent="false"/>
+          <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="5.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Arial" fontSize="32" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="78.5" modelName="custom" textColor="#000000" visible="true" width="346.40625" x="67.7424503191643" y="16.829347056504446">django-ENC
 Python Application<y:LabelModel>
@@ -90,7 +90,7 @@ Python Application<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="112.15869411300889" width="481.89115063832855" x="862.160908697328" y="374.73016380285895"/>
-          <y:Fill color="#CCFFFF" transparent="false"/>
+          <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="5.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Arial" fontSize="32" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="78.5" modelName="custom" textColor="#000000" visible="true" width="294.765625" x="93.56276281916428" y="16.829347056504446">neo4j
 Graph Database<y:LabelModel>
@@ -108,7 +108,7 @@ Graph Database<y:LabelModel>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="112.15869411300895" width="481.89115063832855" x="-591.7405466209276" y="374.7301638028589"/>
-          <y:Fill color="#CCFFFF" transparent="false"/>
+          <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="5.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Arial" fontSize="32" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="78.5" modelName="custom" textColor="#000000" visible="true" width="381.25" x="50.32057531916428" y="16.829347056504503">Salt/Puppet
 Configuration Server<y:LabelModel>
@@ -130,7 +130,7 @@ Configuration Server<y:LabelModel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="5.0"/>
           <y:Arrows source="none" target="delta"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="24" fontStyle="plain" hasLineColor="false" height="31.9375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="115.08203125" x="-180.04534912109375" y="-15.968765258789062">Validates<y:LabelModel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="26" fontStyle="plain" hasLineColor="false" height="34.265625" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="124.3388671875" x="-184.67376708984375" y="-17.132827758789062">Validates<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
