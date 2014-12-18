@@ -70,7 +70,7 @@ All OpenStack services can be very well described by ontology as they communicat
 % Vytvorerin ontologie - protoege, na zaklade SOA ontologie
 % testovani reasoningu pres pellet vyvozovani
 
-Initial work on creating our Ontology was done in Protege, open-source ontology editor and framework for building intelligent systems. It took some time to evolve ontology classes with propertice and create necessary dictionaries \cite{OntologyEvolution} to cover first IaaS architectures.
+Initial work on creating our Ontology was done in Protege, open-source ontology editor and framework for building intelligent systems. It took some time to evolve ontology classes and create necessary dictionaries \cite{OntologyEvolution} to cover first IaaS architectures. Figure \ref{fig:cm} shows the current ontology service architecture.
 
 The ontology is transformed into graph database using our python-bases service named django-ENC that can read and write ontology from OWL-DL XML files created by Protege and communicates with neo4j graph database through REST API. The graph databases are part of family of NoSQL databases and offer much better performance at any volume of data.
 
@@ -83,7 +83,7 @@ The ontology is transformed into graph database using our python-bases service n
 
 The django-ENC service use web framework Django to provide web services and asynchronous task queue Celery to perform time consuming tasks like ontology assertions and synchronizations between XML and graph database. The HTTP REST API that can be consumed by configuration management tools like Salt or Puppet through their External Node Classification interface. The meta-data passed to configuration management tools is valid for level 1, 2 and 3 of unified cloud computing ontology \cite{OntologyComputing}. 
 
-We have successfully tested service status enforcement of several complete OpenStack installations by SaltStack configuration management tool with meta-data acquired from Ontology Service API. The deployment process is not yet fully automated as there is need of setting up network and storage resources manually (only servers are proviced), but the progress in both configuration management tools and network and storage will allow better automation of these components by in-place agents or access protocols like SSH in the future.
+We have successfully tested service status enforcement of several complete OpenStack installations by SaltStack configuration management tool with meta-data acquired from Ontology Service API. The deployment process is not yet fully automated as there is need of setting up network and storage resources manually (only servers are provided), but the progress in both configuration management tools and network and storage will allow better automation of these components by in-place agents or access protocols like SSH in the future.
 
 % \subsection{Model Architecture Sample}
 
