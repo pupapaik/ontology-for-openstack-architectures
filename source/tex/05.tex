@@ -1,5 +1,5 @@
 
-\section{Ontology Usage}
+\section{ONTOLOGY USAGE}
 \label{chap:usage}
 
 % ontologie mohou dobre popsat openstack architekturu, protoze openstack vyuziva message bus, service catalog. Ontologie slouzi pak nad ramec openstack sluzeb u serveru ale definuji i vlastni operacni systemy a pridruzene sluzby - monitorting, metering, firewally, backupy, log management atd
@@ -65,12 +65,12 @@ All OpenStack services can be very well described by ontology as they communicat
 \end{verbatim}
 \noindent
 
-\subsection{Implementation details}
+\subsection{IMPLEMENTATION DETAILS}
 
 % Vytvorerin ontologie - protoege, na zaklade SOA ontologie
 % testovani reasoningu pres pellet vyvozovani
 
-Initial work on creating our Ontology was done in Protege, open-source ontology editor and framework for building intelligent systems. It took some time to evolve ontology classes and create necessary dictionaries \cite{OntologyEvolution} to cover first IaaS architectures. Figure \ref{fig:cm} shows the current ontology service architecture.
+Initial work on creating our Ontology was done in Protege, open-source ontology editor and framework for building intelligent systems. It took some time to evolve ontology classes and create necessary dictionaries \cite{OntologyEvolution} to cover first IaaS architectures. Fig. \ref{fig:cm} shows the current ontology service architecture.
 
 The ontology is transformed into graph database using our python-bases service named django-ENC that can read and write ontology from OWL-DL XML files created by Protege and communicates with neo4j graph database through REST API. The graph databases are part of family of NoSQL databases and offer much better performance at any volume of data.
 

@@ -1,5 +1,5 @@
 
-\section{Service Architecture Models}
+\section{SERVICE ARCHITECTURE MODELS}
 \label{chap:service}
 
 
@@ -12,7 +12,7 @@
 This section describes modularity and complexity of OpenStack IaaS platform including core and supporting services. However, there is not so much place for detail description of all components, since the main idea is contained in Sections \ref{chap:ontology} and \ref{chap:usage}. 
 The goal of this section is to show that OpenStack modules are independent services, which can be implemented in many different of ways. 
 
-\subsection{IaaS Architecture Core Modules}
+\subsection{IAAS ARCHITECTURE CORE MODELS}
 
 OpenStack is complete Infrastructure as a Service platform. It allows to create virtual servers on virtual networks using virtual block devices.
 
@@ -34,7 +34,7 @@ OpenStack is complete Infrastructure as a Service platform. It allows to create 
 
 Further versions of OpenStack introduce more complex services that use basic services to provide for example Data processsing, Database, Message Queue  or Orchestration. All services or modules within OpenStack architecture are independent and have pluggable backends or drivers. This allows vendors to develop plugin for their resources, that can be accessed and managed by the OpenStack API.
 
-Figure \ref{fig:modules} shows the core modules of OpenStack included in Icehouse release. Each module is briefly described including a serveral backends or plugins.
+Fig. \ref{fig:modules} shows the core modules of OpenStack included in Icehouse release. Each module is briefly described including a serveral backends or plugins.
 
 
 %Klasicky logicky model openstack architektury
@@ -71,10 +71,10 @@ OpenStack is not only about its core services, but there are many services at in
 
 %Různé způsoby nasazení ukázky reálné architektury - promapovat ve 4 na ontologii
 
-\subsection{Use Cases}
+\subsection{USE CASES}
 
 We participate in operations of several real OpenStack deployments in Central Eastern Europe. Each of them is different, which means that uses different backends in modules.
-Because of lack of space we decided to show only one use case. Figure \ref{fig:pisek} shows the logical architecture of TCP Virtual Private Cloud.
+Because of lack of space we decided to show only one use case. Fig. \ref{fig:pisek} shows the logical architecture of TCP Virtual Private Cloud.
 
 %\begin{figure}[!h]
 %\centering
